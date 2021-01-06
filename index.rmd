@@ -1,0 +1,1113 @@
+---
+title: "Text Mining FOMC"
+author: "christoffer.nordenlow@outlook.com"
+output:
+  prettydoc::html_pretty:
+    theme: architect
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+library(tidyverse)
+library(lubridate)
+library(slider)
+library(dplyr, warn.conflicts = FALSE)
+library(lubridate, warn.conflicts = FALSE)
+library(cowplot)
+library(fmsb)
+library(hrbrthemes)
+library(ggthemes)
+library(colormap)
+
+library(ggrepel)
+
+library(plotly)
+
+
+###source plots
+source('r_plots.R')
+
+
+#setting overlaps for ggrepel
+options(ggrepel.max.overlaps = Inf)
+
+df <- read.table(
+"data\\fomcMinutesSummary.csv",  ##på detta sätt läser den ur aktuell mapp
+  sep=",", header=TRUE)
+
+#df <- read.table(
+##C:\\Users\\chris\\Documents\\Python\\Applied Text Mining in Python\\words_fomc3.csv", 
+#  sep=",", header=TRUE)
+
+
+#Change dates
+df <- df %>%
+  mutate(date = as.Date(gsub("\\D", "", date), format = "%Y%m%d"))
+
+
+#arrange
+df <- arrange(df, date)
+
+
+##denna funkar ej. berÃ¤kna antal protokoll
+
+
+#numrera antal protokoll
+temp <- df%>%
+  select(date) %>%
+  distinct() %>%
+  mutate(num = 1:n())
+
+df <- merge(df, temp, by = "date", all.x = TRUE)
+
+
+###sliding mean
+df <- df  %>%
+  group_by(subject, additional) %>% 
+  mutate(avg_st = slide_index_dbl(frequency, num, mean, .before=3, .after=-1,.complete=T)) %>% ##dont include the current
+  mutate(avg_lt = mean(frequency))%>%
+  mutate(avg_st_share = slide_index_dbl(frequency_share, num, mean, .before=3, .after=-1,.complete=T))%>%
+  mutate(avg_lt_share = mean(frequency_share))%>%
+  mutate(ma_3m = slide_index_dbl(frequency, num, mean, .before=2, .after=0, .complete=T))%>%
+  mutate(ma_3m_share = slide_index_dbl(frequency_share, num, mean, .before=2, .after=0, .complete=T))
+
+
+#exclude first three rows to only include when 3m_moving is on
+df <-df %>%
+  filter(num > 3)
+
+####Fill in ma_3m with same conditions, otherwise dont show these in plots?
+
+#df <- df %>%
+#  group_by(subject, additional) %>% 
+ # fill(ma_3m, .direction = c("up"))%>%
+  #  fill(ma_3m_share, .direction = c("up"))%>%
+  #as.data.frame(df)
+
+
+###sliding mean
+#df <- df  %>%
+ # group_by(subject, additional) %>% 
+#  mutate(avg_st = slide_index_dbl(frequency, date, mean, .before=lubridate::years(1), .after=0,.complete=T)) %>%
+#  mutate(avg_lt = mean(frequency))%>%
+#  mutate(avg_st_share = slide_index_dbl(frequency_share, date, mean, .before=lubridate::years(1), .after=0,.complete=T))%>%
+#  mutate(avg_lt_share = mean(frequency_share))
+
+#one minute lag
+df <- df %>%
+  group_by(subject, additional) %>%
+  mutate(previous = lag(frequency, n = 1, default = NA)) %>%
+  mutate(previous_share = lag(frequency_share, n = 1, default = NA))
+
+
+
+df <- df %>%
+  mutate(chg_previous = frequency - previous)%>%
+  mutate(chg_avg_st = frequency - avg_st)%>%
+  mutate(chg_avg_lt = frequency - avg_lt)%>%
+  mutate(chg_previous_share = frequency_share - previous_share)%>%
+  mutate(chg_avg_st_share = frequency_share - avg_st_share)%>%
+  mutate(chg_avg_lt_share = frequency_share - avg_lt_share)
+
+  
+
+
+
+
+
+###fed funds rate
+
+
+df2 <- read.table(
+  "data\\fedfundsRate.csv", 
+  sep=",", header=TRUE)
+
+
+#Change dates
+df2 <- df2 %>%
+  mutate(date = as.Date(gsub("\\D", "", date), format = "%Y%m%d"))
+
+
+#arrange
+df2 <- arrange(df2, date)
+
+df2 <- df2%>%
+  filter(bound == "lower_bound")%>%
+  select(-bound)
+
+
+
+df <- merge(df, df2, by ="date", all.x =  TRUE)
+
+df <- as.data.frame(df)
+df[is.na(df)] <- 0
+
+```
+
+
+```{r, echo=FALSE, results='asis'}
+#https://bookdown.org/yihui/rmarkdown-cookbook/results-asis.html
+#This is for writing markdown text but grabbing the date from the dataset
+header = paste("## Text mining FOMC Minutes", max(df$date))
+cat(header)
+
+## Text Mining the Fed 
+
+```
+
+
+
+---
+
+*What did Fed say? With the help of text mining, this report aims to gain insights and colour from FOMC Minutes and to make plots out of words.*
+
+*To be able to to compare Minutes by different length with each other, everything below is set in relation to total the number of words or paragraph in their respective Minutes. Please see more information at [description and methodology](#description-and-methodology).*
+
+*Contents include:*
+
+[General sentiment](#general-sentiment) 
+
+[Economic and financial market conditions](#economic-and-financial-market-conditions-analysis) 
+
+[Policy toolbox and topics](#policy-toolbox-and-topics) 
+
+[In deeper breakdown of selected topics](#in-deeper-breakdown) 
+ 
+
+---
+
+
+
+
+### General sentiment
+
+#### Net sentiment
+*Net sentiment is calculated by extracting all positive and negative words, and then taking the difference between these divided by the total number of words.*
+```{r, echo=FALSE, messages=FALSE}
+
+#plot spread, average sentiment trending down
+
+temp <- df %>%
+  filter(category == "sentiment")%>%
+  filter(subject == "net_sentiment")%>%
+ # mutate(sign = if_else(chg_avg >= 0, "Positive", "Negative"))  %>%
+#  as.data.frame(temp)%>%
+  pivot_longer(-c("category", "subject", "additional", "date"), values_to = "values")%>%
+  filter(name %in% c("chg_avg_lt_share"))%>%
+  mutate(change_positive = values > 0)
+
+
+c_title = "Net sentiment index"
+c_subtitle = "Net sentiment (positive - negative words) vs average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = ""
+c_y_axis = "Sentiment index"
+
+
+
+p <- ggplot(data = temp,
+            mapping = aes(x = date, y = values, fill = change_positive))+
+  geom_col() + guides(fill = FALSE) +
+    theme_light()+
+  #  theme_minimal(base_size=8)+
+  theme(legend.position="bottom",
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face="italic"),
+        plot.title=element_text(size=16,face="bold"))+
+  labs(x=c_x_axis,y=c_y_axis,
+       title=c_title,
+       subtitle=c_subtitle,
+       caption=c_caption)+
+  scale_color_manual(values=c("#d73027","#4575b4"),name="Net sentiment Above/Below moving average sentiment")+
+  scale_y_continuous(limits=c(-max(abs(temp$values)),max(abs(temp$values))))
+p
+
+
+
+```
+
+
+#### Intensifier-index
+*Intensifier-index shows the magnitude of the net sentiment by setting positive and negative words in combination with intensifier words (e.g. extremely, significant, sharply etc).*
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+
+
+temp <- df %>%
+  filter(category == "intensifiers")%>%
+  filter(subject %in% c("intensifiers_net"))%>%
+  filter(additional =="count_words")%>%
+  
+  #for plotting
+  mutate(y_axis = ma_3m_share,
+         x_axis = date,
+         hline_intercept = avg_lt_share,
+         fed_funds_rate = rate)
+
+
+
+c_title = "Intensifier-index"
+c_subtitle = "Intensifier-index shows the magnutide of positive and negative words (3m moving avg). \n Long term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations. \nIntensifier-index calulates the difference between positive and negative words in combination with intensifiers."
+c_x_axis = ""
+c_y_axis = "Index"
+
+
+
+
+
+p1 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+p1
+
+```
+
+
+#### Strong-Weak-Moderate - Index
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+
+
+temp <- df %>%
+  filter(category == "sentiment_words")%>%
+  filter(subject %in% c("Strong", "Weak", "Moderate"))%>%
+  filter(additional =="count_words")%>%
+  # as.data.frame(temp)%>%
+  pivot_longer(-c("category", "subject", "additional", "date"), values_to = "values")%>%
+  filter(name %in% c("ma_3m_share"))%>%
+  #filter(name %in% c("frequency_share"))%>%
+  select(date,subject, values)%>%
+  pivot_wider(date, names_from = subject, values_from = values)%>%
+  mutate(diff = (Strong-Weak)/Moderate)%>%
+  mutate(average = mean(diff))%>%
+  mutate(y_axis = diff,
+         x_axis = date,
+         hline_intercept = average)
+
+
+##addera fed funds rate###
+temp2 <- df %>%
+  select(date, rate)%>%
+  distinct(date,rate)
+
+temp <- merge(temp,temp2,by.x = "date", all.x = TRUE)
+
+temp <- temp %>%
+  mutate(fed_funds_rate = rate)
+
+
+
+c_title = "SWM-Index"
+c_subtitle = "The use of words strong, weak and moderate in an index. \n Long term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations. \nIndex: (Strong - weak) / moderate."
+c_x_axis = ""
+c_y_axis = "SWM-index"
+
+
+
+p1 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p1
+```
+
+
+#### Selected sentiment indicators
+
+```{r,echo=FALSE, messages=FALSE}
+
+temp <- df %>%
+#  as.data.frame(temp)%>%
+  filter(category == "sentiment_words")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+c_title = "Mapping Feds mind: selected sentiment indicators"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+#https://ggrepel.slowkow.com/articles/examples.html
+#p <- ggplot(temp, aes(x_axis, y_axis)) +
+ # geom_point(aes(size=plot_size, color=subject)) +
+#  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
+#  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
+#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
+
+ #   geom_hline(yintercept=0) + geom_vline(xintercept=0) +
+#  theme_minimal() +
+  
+ # theme(legend.position="bottom",
+  #      plot.caption=element_text(hjust=0),
+  #      plot.subtitle=element_text(face="italic"),
+   #     plot.title=element_text(size=16,face="bold"))+
+  
+
+    #  labs(x=c_x_axis,y=c_y_axis,
+     #  title=c_title,
+      # subtitle=c_subtitle,
+       #caption=c_caption)+
+  
+  #theme(legend.position = "none")+
+  
+#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, fontface="italic",hjust = 1)+
+#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, fontface="italic",hjust = 1)+
+ # annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
+  #annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
+
+  
+  
+#p  
+
+```
+
+
+
+---
+
+### Economic and financial market conditions
+
+#### Economic topics
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+temp <- df %>%
+  #as.data.frame(temp)%>%
+  filter(category == "broad_topics")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         plot_size = frequency_share)
+
+
+
+c_title = "Mapping Feds mind: economic topics"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+#https://ggrepel.slowkow.com/articles/examples.html
+p <- ggplot(temp, aes(x_axis, y_axis)) +
+  geom_point(aes(size=plot_size, color=subject)) +
+#  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
+  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
+#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
+
+    geom_hline(yintercept=0) + geom_vline(xintercept=0) +
+  theme_minimal() +
+  
+  theme(legend.position="bottom",
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face="italic"),
+        plot.title=element_text(size=16,face="bold"))+
+  
+      labs(x=c_x_axis,y=c_y_axis,
+       title=c_title,
+       subtitle=c_subtitle,
+       caption=c_caption)+
+  
+  theme(legend.position = "none")+
+  
+  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, fontface="italic",hjust = 1)+
+  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, fontface="italic",hjust = 1)+
+  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
+  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
+
+  
+  
+p  
+  
+
+```
+
+
+#### Sentiment analysis of economic topics
+
+
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+###################PLOT all in the same. Denna borde man köra på för sentiment per topic?
+
+
+
+temp <- df%>%
+  filter(category == "broad_topics")%>%
+  filter(additional == "net_sentiment_per_topic")%>%
+  filter(date >= max(df$date))%>%
+  rename("Current sentiment" = "frequency_share",
+         "Difference vs short term avg" = "chg_avg_st_share",
+         "Difference vs long term avg" = "chg_avg_lt_share",
+         )%>%
+  #as.data.frame(temp)%>%
+  pivot_longer(-c("category", "subject", "additional", "date"), values_to = "values")%>%
+  filter(name %in% c("Current sentiment","Difference vs short term avg", "Difference vs long term avg"))%>%
+mutate(change_positive = values >= 0)
+  
+
+min_y_scale = min(temp$values) - abs(0.1 * min(temp$values))
+max_y_scale = max(temp$values) + abs(0.1 * max(temp$values))
+
+
+temp$group <- factor(temp$name, levels = c("Current sentiment","Difference vs short term avg", "Difference vs long term avg")) ##This is needed to keep the order
+
+
+
+c_title = "Sentiment per topic"
+c_subtitle = "Net sentiment (positive - negative words) for each topic."
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Topic"
+c_y_axis = "Net sentiment per topic"
+
+
+######Help for ordering after first plots values
+temp <- temp %>%
+  mutate(order = ifelse(name == "Current sentiment", values,0))%>%
+  arrange(order, values)
+
+
+plot <- ggplot(data = temp,
+               #   aes(x = subject, y = values,
+               aes(x = reorder(subject, order), y = values,
+                   fill = change_positive))+
+  geom_bar(stat = "identity")+
+  coord_flip()+
+  
+      labs(x=c_x_axis,y=c_y_axis,
+       title=c_title,
+       subtitle=c_subtitle,
+       caption=c_caption)+
+  
+  theme_light()+
+#  theme(strip.background =element_blank(),
+ #       panel.grid.minor.x = element_blank(),
+  #      panel.grid.minor.y = element_blank())+
+  theme(
+      strip.background =element_blank(),  
+      legend.position="bottom",
+      plot.caption=element_text(hjust=0),
+      plot.subtitle=element_text(face="italic"),
+      plot.title=element_text(size=16,face="bold"))+
+  
+  theme(strip.text = element_text(colour = 'black', face = 'bold'))+
+  guides(fill = FALSE)+
+  #ylab("") +
+  xlab("") +
+  facet_wrap(~group, scales = "free_x")+
+  scale_y_continuous(limits=c(min_y_scale,max_y_scale))
+
+plot
+
+
+```
+
+
+
+#### Financial markets
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+temp <- df %>%
+  #as.data.frame(temp)%>%
+  filter(category == "financial_conditions")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         plot_size = frequency_share)
+
+
+
+c_title = "Mapping Feds mind: financial markets"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+#https://ggrepel.slowkow.com/articles/examples.html
+p <- ggplot(temp, aes(x_axis, y_axis)) +
+  geom_point(aes(size=plot_size, color=subject)) +
+#  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
+  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
+#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
+
+    geom_hline(yintercept=0) + geom_vline(xintercept=0) +
+  theme_minimal() +
+  
+  theme(legend.position="bottom",
+        plot.caption=element_text(hjust=0),
+        plot.subtitle=element_text(face="italic"),
+        plot.title=element_text(size=16,face="bold"))+
+  
+      labs(x=c_x_axis,y=c_y_axis,
+       title=c_title,
+       subtitle=c_subtitle,
+       caption=c_caption)+
+  
+  theme(legend.position = "none")+
+  
+  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, fontface="italic",hjust = 1)+
+  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, fontface="italic",hjust = 1)+
+  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
+  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
+
+  
+  
+p  
+  
+
+```
+
+
+
+#### Sentiment analysis of financial markets
+
+
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+###################PLOT all in the same. Denna borde man köra på för sentiment per topic?
+
+
+
+temp <- df%>%
+  filter(category == "financial_conditions")%>%
+  filter(additional == "net_sentiment_per_topic")%>%
+  filter(date >= max(df$date))%>%
+  rename("Current sentiment" = "frequency_share",
+         "Difference vs short term avg" = "chg_avg_st_share",
+         "Difference vs long term avg" = "chg_avg_lt_share",
+         )%>%
+  #as.data.frame(temp)%>%
+  pivot_longer(-c("category", "subject", "additional", "date"), values_to = "values")%>%
+  filter(name %in% c("Current sentiment","Difference vs short term avg", "Difference vs long term avg"))%>%
+mutate(change_positive = values >= 0)
+  
+
+min_y_scale = min(temp$values) - abs(0.1 * min(temp$values))
+max_y_scale = max(temp$values) + abs(0.1 * max(temp$values))
+
+
+temp$group <- factor(temp$name, levels = c("Current sentiment","Difference vs short term avg", "Difference vs long term avg")) ##This is needed to keep the order
+
+
+
+c_title = "Sentiment per topic"
+c_subtitle = "Net sentiment (positive - negative words) for each topic."
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Topic"
+c_y_axis = "Net sentiment per topic"
+
+
+######Help for ordering after first plots values
+temp <- temp %>%
+  mutate(order = ifelse(name == "Current sentiment", values,0))%>%
+  arrange(order, values)
+
+
+plot <- ggplot(data = temp,
+               #   aes(x = subject, y = values,
+               aes(x = reorder(subject, order), y = values,
+                   fill = change_positive))+
+  geom_bar(stat = "identity")+
+  coord_flip()+
+  
+      labs(x=c_x_axis,y=c_y_axis,
+       title=c_title,
+       subtitle=c_subtitle,
+       caption=c_caption)+
+  
+  theme_light()+
+#  theme(strip.background =element_blank(),
+ #       panel.grid.minor.x = element_blank(),
+  #      panel.grid.minor.y = element_blank())+
+  theme(
+      strip.background =element_blank(),  
+      legend.position="bottom",
+      plot.caption=element_text(hjust=0),
+      plot.subtitle=element_text(face="italic"),
+      plot.title=element_text(size=16,face="bold"))+
+  
+  theme(strip.text = element_text(colour = 'black', face = 'bold'))+
+  guides(fill = FALSE)+
+  #ylab("") +
+  xlab("") +
+  facet_wrap(~group, scales = "free_x")+
+  scale_y_continuous(limits=c(min_y_scale,max_y_scale))
+
+plot
+
+
+```
+
+
+
+---
+
+### Policy toolbox and topics
+
+#### Policy toolbox
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+temp <- df %>%
+ # as.data.frame(temp)%>%
+  filter(category == "policy_topics")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+c_title = "Mapping Feds mind: policy toolbox"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+
+
+```
+
+
+
+
+
+#### Policy key words
+
+```{r,echo=FALSE, messages=FALSE}
+temp <- df %>%
+#  as.data.frame(temp)%>%
+  filter(category == "policy_words")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+
+c_title = "Mapping Feds mind: policy key words"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+#https://ggrepel.slowkow.com/articles/examples.html
+
+
+
+
+
+
+```
+
+
+
+
+
+
+#### Key-words-O-Meters
+```{r,echo=FALSE, messages=FALSE}
+
+###Accommodative
+
+temp <- df %>%
+  filter(category == "policy_words")%>%
+  filter(subject == "Accommodative")%>%
+  filter(additional =="count_words")%>%
+  
+#for plotting
+        mutate(y_axis = ma_3m_share,
+         x_axis = date,
+        hline_intercept = avg_lt_share,
+        fed_funds_rate = rate)
+
+
+
+c_title = "Accommodative-O-Meter"
+c_subtitle = "The use of the word accommodative (3m moving avg). \nLong term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations. Long term average in red, fed funds rate in blue (not fit to scale)."
+c_x_axis = ""
+c_y_axis = "Share of paragraphs"
+
+
+
+d1 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+
+###Normalization
+
+temp <- df %>%
+  filter(category == "policy_words")%>%
+  filter(subject == "Normalization")%>%
+  filter(additional =="count_words")%>%
+  
+#for plotting
+        mutate(y_axis = ma_3m_share,
+         x_axis = date,
+        hline_intercept = avg_lt_share,
+        fed_funds_rate = rate)
+
+
+
+c_title = "Normalization-O-Meter"
+c_subtitle = "The use of the word normalization (3m moving avg). \nLong term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = ""
+c_y_axis = "Share of paragraphs"
+
+
+
+d2 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+
+
+###Gradual
+
+temp <- df %>%
+  filter(category == "policy_words")%>%
+  filter(subject == "Gradual")%>%
+  filter(additional =="count_words")%>%
+  
+#for plotting
+        mutate(y_axis = ma_3m_share,
+         x_axis = date,
+        hline_intercept = avg_lt_share,
+        fed_funds_rate = rate)
+
+
+
+c_title = "Gradual-O-Meter"
+c_subtitle = "The use of the word gradual (3m moving avg). \nLong term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = ""
+c_y_axis = "Share of paragraphs"
+
+
+
+d3 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+
+
+
+###Gradual
+
+temp <- df %>%
+  filter(category == "policy_words")%>%
+  filter(subject == "Data dependent")%>%
+  filter(additional =="count_words")%>%
+  
+#for plotting
+        mutate(y_axis = ma_3m_share,
+         x_axis = date,
+        hline_intercept = avg_lt_share,
+        fed_funds_rate = rate)
+
+
+
+c_title = "Data-Dependent-O-Meter"
+c_subtitle = "The use of the meaning of data dependent (3m moving avg). \nLong term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = ""
+c_y_axis = "Share of paragraphs"
+
+
+
+d4 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+
+d1
+d2
+d3
+#d4
+#library(gridExtra)
+#grid.arrange(d1, d2, ncol = 2)    
+#grid.arrange(d3, ncol = 2)    
+
+
+```
+
+
+
+#### Policy action
+*The graph below show the difference between sentences containing words like consensus, majority, all and those of words like a few, one or two. Above red dotted line suggest there are a more consensus view among participants then when below the dotted red line.*
+
+```{r,echo=FALSE, messages=FALSE}
+
+
+temp <- df %>%
+  filter(category == "quantitative_words")%>%
+  filter(subject %in% c("Consensus", "Few"))%>%
+  filter(additional =="count_words")%>%
+  #as.data.frame(temp)%>%
+  pivot_longer(-c("category", "subject", "additional", "date"), values_to = "values")%>%
+  #filter(name %in% c("frequency_share"))%>%
+  filter(name %in% c("ma_3m_share"))%>%
+  
+  select(date,subject, values)%>%
+  pivot_wider(date, names_from = subject, values_from = values)%>%
+  mutate(diff = Consensus-Few)%>%
+  mutate(average = mean(diff))%>%
+    mutate(y_axis = diff,
+         x_axis = date,
+        hline_intercept = average)
+
+
+
+
+
+
+
+
+
+##add fed funds rate
+temp2 <- df %>%
+  select(date, rate)%>%
+  distinct(date,rate)
+
+temp <- merge(temp,temp2,by.x = "date", all.x = TRUE)
+
+temp <- temp %>%
+  mutate(fed_funds_rate = rate)
+
+
+
+
+c_title = "Consensus-O-Meter"
+c_subtitle = "The difference between the meaning of consensus and a few (3m moving avg). \nLong term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = ""
+c_y_axis = "Relative"
+
+
+
+p1 <- plot_line(temp, x_axis, y_axis, hline_intercept, fed_funds_rate, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+p1
+
+
+
+```
+
+
+
+
+### In deeper breakdown 
+
+#### Inflation
+```{r,echo=FALSE, messages=FALSE}
+temp <- df %>%
+#  as.data.frame(temp)%>%
+  filter(category == "in_deep_inflation")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+
+c_title = "Mapping Feds mind: inflation"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+#https://ggrepel.slowkow.com/articles/examples.html
+
+
+
+
+
+```
+
+
+#### Labor market
+```{r,echo=FALSE, messages=FALSE}
+temp <- df %>%
+#  as.data.frame(temp)%>%
+  filter(category == "in_deep_labor")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+
+c_title = "Mapping Feds mind: labor market"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+
+
+#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
+
+#https://ggrepel.slowkow.com/articles/examples.html
+#p <- ggplot(temp, aes(x_axis, y_axis)) +
+ #geom_point(aes(size=plot_size, color=subject)) +
+##  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
+#  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
+#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
+
+  #  geom_hline(yintercept=0) + geom_vline(xintercept=0) +
+#  theme_minimal() +
+  
+  #theme(legend.position="bottom",
+     #   plot.caption=element_text(hjust=0),
+    #    plot.subtitle=element_text(face="italic"),
+   #     plot.title=element_text(size=16,face="bold"))+
+  #
+     # labs(x=c_x_axis,y=c_y_axis,
+    #   title=c_title,
+   #    subtitle=c_subtitle,
+  #     caption=c_caption)+
+ # 
+#  theme(legend.position = "none")+
+  
+#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, #fontface="italic",hjust = 1)+
+#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, #fontface="italic",hjust = 1)+
+#  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, #fontface="italic",hjust = 0)+
+#  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, #fontface="italic",hjust = 0)
+
+  
+  
+
+
+
+
+
+
+```
+
+#### Asset purchases
+```{r,echo=FALSE, messages=FALSE}
+temp <- df %>%
+#  as.data.frame(temp)%>%
+  filter(category == "in_deep_asset_program")%>%
+  filter(additional == "count_words")%>%
+  filter(date == max(df$date))%>%
+  select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
+  mutate(y_axis = chg_avg_st_share,
+         x_axis = chg_avg_lt_share,
+         bubble_size = frequency_share)
+
+
+
+c_title = "Mapping Feds mind: asset purchases"
+c_subtitle = "Topics current share compared to short and long term average"
+c_caption = "Source: FOMC Minutes, own calculations."
+c_x_axis = "Difference vs long term average"
+c_y_axis = "Difference vs short term average"
+
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+
+
+  
+  
+
+
+
+
+
+```
+
+
+---
+
+### Description and Methodology
+
+
+Code available on *[github](https://github.com/cnordenlow/fomc-word-watcher)*.
+
+
+<p>**Methodology**<br>
+The approach of this project are as follows.</p>
+* Words and topics are divided into bag of words of its meaning (e.g. the word "strong" may consists of ["strong", "stronger", "strongest", "strengthen"]). </p>
+* Text are divided into sentences that cleaned for special characters, extra spaces and then tokenized and lemmatized, then converted back to a sentence.</p>
+* All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word "stronger" is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop followed which counts negative and positive words in the same sentence to get the net sentiment for each topic.  </p>
+
+*The purpose with the bag of words format is to being able to get part  of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it´s not sufficient to map a sentence with the word of "reduce" and "asset purchase" in the same, but it´s needed to get more of the context for being (more) sure of the meaning.*
+
+The methodology used in this project include use of Python for web parsing and text mining, producing .csv files. R is then used for some additional calculations and to render a Markdown report with vizualisations. Some notes below of the different parts.
+
+</p>
+
+
+
+<p>**Web parsing**<br>
+All web parsing is done using BeautifulSoup package. The code first parse all .htm pages with the url of "Minutes" in it for the year of interest. Then, a second loop parse all the (chosen) Minutes for the text mining. In both parsing steps, there are a time delay of a couple of seconds.</p>
+
+<p>**Text mining**<br>
+With the help of the great package of NLTK, the Minutes are cleaned and converted to a more gentle format. A pretty long(:/) loop are then iterated that runs a set of inner loops for getting the information for each Minutes.</p>
+
+<p>**Vizualisation**<br>
+R is used for some further calculations and Markdown for creating a report.</p>
+
+
+
+

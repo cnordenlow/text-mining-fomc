@@ -43,3 +43,28 @@ R is used for some further calculations and Markdown for creating a report.
 
 To run this project, cloone it and install it locally. It´s takes aprox 20 minutes to run due to sleep-function of 3 to 7 seconds between each parsed Statement and Minutes.
 
+In the beginning of both Python scripts there it is a possibility to write in the number of statements and minutes to parse. I would recommend to change it to 5 when trying.
+
+#### Packages needed
+**Python**
+import urllib.request, urllib.parse, urllib.error
+from bs4 import BeautifulSoup
+import nltk
+from nltk import sent_tokenize
+from nltk import word_tokenize
+from nltk.probability import FreqDist
+from nltk.stem import WordNetLemmatizer
+from nltk.tokenize.treebank import TreebankWordDetokenizer
+import re
+import pandas as pd
+import time
+import random
+
+**R**
+install.packages("rmarkdown")
+library(tidyverse)
+library(slider)
+library(lubridate)
+library(ggrepel)
+library("rstudioapi")   
+library(reticulate)

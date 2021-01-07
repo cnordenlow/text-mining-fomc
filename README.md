@@ -47,8 +47,9 @@ In the beginning of both Python scripts there it is a possibility to write in th
 
 #### Packages needed
 **Python**
-import urllib.request, urllib.parse, urllib.error
-from bs4 import BeautifulSoup
+
+import urllib.request, urllib.parse, urllib.error <br>
+from bs4 import BeautifulSoup <br>
 import nltk
 from nltk import sent_tokenize
 from nltk import word_tokenize

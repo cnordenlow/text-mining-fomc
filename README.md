@@ -39,7 +39,7 @@ With the help of the great package of NLTK, the Minutes are cleaned and converte
 R is used for some further calculations and Markdown for creating a report.
 
 
-*** Setup
+### Setup
 
 To run this project, cloone it and install it locally. It´s takes aprox 20 minutes to run due to sleep-function of 3 to 7 seconds between each parsed Statement and Minutes.
 

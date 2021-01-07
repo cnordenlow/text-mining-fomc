@@ -25,7 +25,7 @@ The approach of this project are as follows.
 
 * All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word "stronger" is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop followed which counts negative and positive words in the same sentence to get the net sentiment for each topic. 
 
-*The purpose with the bag of words format is to being able to get part  of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it´s not sufficient to map a sentence with the word of "reduce" and "asset purchase" in the same, but it´s needed to get more of the context for being (more) sure of the meaning.*
+*The purpose with the bag of words format is to being able to get part  of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it´s not sufficient to map a sentence with the word of "increase" and "asset purchase" in the same, but it´s for some subjects to get more of the context for being (more) sure of the meaning.*
 
 The methodology used in this project include use of Python for web parsing and text mining, producing .csv files. R is then used for some additional calculations and to render a Markdown report with vizualisations. Some notes below of the different parts.
 
@@ -61,7 +61,9 @@ import pandas as pd <br>
 import time <br>
 import random <br>
 
+
 **R**
+
 install.packages("rmarkdown") <br>
 library(tidyverse) <br>
 library(slider) <br>

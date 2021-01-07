@@ -2,25 +2,16 @@
 ##            FOMC Word Watching            ##
 ###############################################
 
-###INFO: Due to lag in parsing, its take time to run it all for now.
-
-
-#Setup
-##Python package
+###INFO: Due to sleep function of 3 to 7 seconds between each parsing, it´s can take around 20 minutes to run it all.
 
 #R packages
-library("rstudioapi")   
-
+library(rstudioapi)
+library(tidyverse)
 library(reticulate) #for being able to run python
 
 
 #install.packages("rstudioapi")
 setwd(dirname(getActiveDocumentContext()$path))       # Set working directory to source file locatio
-
-
-#Run Python Statements
-#Run Python Minutes
-#Run Markdown
 
 
 
@@ -41,7 +32,7 @@ reticulate::source_python("iterateMinutes.py")
 ###############################################
 
 ##Get last Minutes date
-library(tidyverse)
+
 df <- read.table(
   "data\\fomcMinutesSummary.csv",  
   sep=",", header=TRUE)

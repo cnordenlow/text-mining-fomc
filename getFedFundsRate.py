@@ -1,9 +1,5 @@
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
-#import ssl
-from collections import Counter, defaultdict
-from operator import itemgetter
-import json
 import nltk
 from nltk import sent_tokenize
 from nltk import word_tokenize
@@ -11,14 +7,11 @@ from nltk.probability import FreqDist
 from nltk.stem import WordNetLemmatizer
 import re
 import pandas as pd
-#import matplotlib.pyplot as plt
-#import seaborn as sns
-#import jinja2
-#import pysentiment2
 import time
 from nltk.corpus import stopwords
 
-
+##change the number of statements to parse
+number = 100
 
 
 urls = ['https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm',
@@ -74,7 +67,7 @@ def convertRate(rate):
 
 
 #get each url link
-for each in statements_list_url:
+for each in statements_list_url[0:number]:
     time.sleep(3)
     url2 = 'https://www.federalreserve.gov' + each  #get url for each side
 

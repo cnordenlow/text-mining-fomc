@@ -1,10 +1,7 @@
 
 import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
-#import ssl
-#from collections import Counter, defaultdict
-#from operator import itemgetter
-#import json
+
 import nltk
 from nltk import sent_tokenize
 from nltk import word_tokenize
@@ -14,8 +11,12 @@ import re
 import pandas as pd
 import time
 from nltk.tokenize.treebank import TreebankWordDetokenizer
+import random
+#from nltk.corpus import stopwords
 
-#https://www.programiz.com/python-programming/nested-dictionary
+##change the number of minutes to parse further down in the code
+number= 100
+
 
 urls = ['https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm',
         'https://www.federalreserve.gov/monetarypolicy/fomchistorical2014.htm',
@@ -30,7 +31,7 @@ urls = ['https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm',
 list_fomc_word_freq = []
 minutes_list_url = []
 for url in urls:
-    time.sleep(2)
+    time.sleep(random.uniform(3,7))
     html = urllib.request.urlopen(url).read()
     soup = BeautifulSoup(html, 'html.parser')
 
@@ -86,9 +87,6 @@ topics =    {'broad_topics' :
                 #'ample reserve' : ["ample reserve"]
                 },
 
-#standing repo facility?
-#treasury bills?
-
             'policy_words' :
                 {
                 'Patient' : ["patient"],
@@ -130,8 +128,6 @@ sentiment_words = {
 
                 'positive' : ["picked up", "favorable", "deal", "stable", "above", "solid", "robust", "confidence", "rose", "expansion", "expand", "raise", "favored", "encouraging", "boost", "strengthen", "exceptional", "benefit","strong", "advantage","strengthening", "accomplish","progress" "sustained", "roughly balanced", "improved", "rebounded", "gain", "rapid", "rise", "positive", "tightening", "advanced", "above", "recovered", "expanded","smooth", "good","boosted","confident","achieving", "exceptionally","improvement","positive","greatly","strengthened","rebound","success","stability","effective","improve","improvement","confident","benefit","tremendous","better","progress","enhance","achieved"]
                     }
-### outcome-based guidance
-# shifting its Treasury purchases to those with a longer maturity without increasing the size of its purchases. A
 
 intensifiers = ["very", "terribly", "exceptionally", "extremely", "significant", "extreme", "significantly", "rapid", "rapidly", "sharp", "severely","substantial", "substantially", "terribly", "sharply"] ###ny
 
@@ -181,9 +177,12 @@ count_inner = 0
 minutes_all_tables = pd.DataFrame(columns=['date','category','additional','subject','frequency', 'frequency_share'])
 temp_table = pd.DataFrame(columns=['date','category','additional','subject','frequency', 'frequency_share'])
 
+
+##change the number of statements to parse further down in the code
+
 #get each url link
-for each in minutes_list_url:
-    time.sleep(3)
+for each in minutes_list_url[0:number]:
+    time.sleep(random.uniform(3,7))
 
     url2 = 'https://www.federalreserve.gov' + each  #get url for each side
     html = urllib.request.urlopen(url2).read()
@@ -299,88 +298,6 @@ for each in minutes_list_url:
 
 
 
-##########Get dissenters########## Vet ej om vi ska ha det här?
-    voting_dict_temp = dict()
-    vote_number = 0
-    for sen in sentences:
-        if "Voting for this action" in sen:
-            vote_number = vote_number +1
-            sen_split=sen[sen.find(":")+1:] ##get sentences after the line ending with :
-            if "\n" in  sen:
-                sen_split=sen[:sen.find("\n")+1] ##get words before new line, this is due because in some minutes they have put in a dot after the names.
-
-        #print(sen_split)
-            if ", and" in sen_split: ##if says ", and", divide on and
-            # replace and with ,
-                sen_split = sen_split.replace(', and', ',')
-            #print(sen_split)
-            if " and" in sen_split: ##if says ", and", divide on and
-                sen_split = sen_split.replace(' and', ',')
-            #print(sen_split)
-        #print(len(sen_split.split(",")))
-            if len(sen_split) > 7: #so it dosent count "none"
-                voting_dict_temp['voting_for'] = len(sen_split.split(","))
-                sen_split = sen_split.split(",")
-
-                voting_dict_temp = pd.DataFrame(voting_dict_temp.items(), columns=['subject', "frequency"])    #this is needed to have here to capture multiple votes in a minutes
-                voting_dict_temp['date'] = minutes_x
-                voting_dict_temp['additional'] = vote_number ##vote number is used to keep track if there are multiple votes in a minutes
-                voting_dict_temp['category'] = "vote" ##vote number is used to keep track if there are multiple votes in a minutes
-
-                minutes_all_tables = pd.concat([minutes_all_tables, voting_dict_temp])
-                voting_dict_temp = dict()
-
-            else:
-                voting_dict_temp['voting_for'] = 0
-
-                voting_dict_temp = pd.DataFrame(voting_dict_temp.items(), columns=['subject', "frequency"])    #this is needed to have here to capture multiple votes in a minutes
-                voting_dict_temp['date'] = minutes_x
-                voting_dict_temp['additional'] = vote_number ##vote number is used to keep track if there are multiple votes in a minutes
-                voting_dict_temp['category'] = "vote" ##vote number is used to keep track if there are multiple votes in a minutes
-
-
-                minutes_all_tables = pd.concat([minutes_all_tables, voting_dict_temp])
-                voting_dict_temp = dict()
-
-
-        if "Voting against this action" in sen:
-            sen_split=sen[sen.find(":")+1:]##get sentences after the line ending with :
-            if "\n" in  sen:
-                sen_split=sen[:sen.find("\n")+1] ##get words before new line, this is due because in some minutes they have put in a dot after the names.
-            if ", and" in sen_split: ##if says ", and", divide on and
-            # replace and with ,
-                sen_split = sen_split.replace(', and', ',')
-            #print(sen_split)
-            if " and" in sen_split: ##if says ", and", divide on and
-                sen_split = sen_split.replace(' and', ',')
-
-            if len(sen_split) >7: # to exclude when it says "none"
-
-                voting_dict_temp['voting_against'] = len(sen_split.split(","))
-
-                voting_dict_temp = pd.DataFrame(voting_dict_temp.items(), columns=['subject', "frequency"])    #this is needed to have here to capture multiple votes in a minutes
-                voting_dict_temp['date'] = minutes_x
-                voting_dict_temp['additional'] = vote_number ##vote number is used to keep track if there are multiple votes in a minutes
-                voting_dict_temp['category'] = "vote" ##vote number is used to keep track if there are multiple votes in a minutes
-
-#                voting_dict = pd.concat([voting_dict, voting_dict_temp])
-                minutes_all_tables = pd.concat([minutes_all_tables, voting_dict_temp])
-                voting_dict_temp = dict()
-
-
-            else:
-                voting_dict_temp['voting_against'] = 0
-
-                voting_dict_temp = pd.DataFrame(voting_dict_temp.items(), columns=['subject', "frequency"])    #this is needed to have here to capture multiple votes in a minutes
-                voting_dict_temp['date'] = minutes_x
-                voting_dict_temp['additional'] = vote_number ##vote number is used to keep track if there are multiple votes in a minutes
-                voting_dict_temp['category'] = "vote" ##vote number is used to keep track if there are multiple votes in a minutes
-
-                minutes_all_tables = pd.concat([minutes_all_tables, voting_dict_temp])
-                voting_dict_temp = dict()
-
-
-
 
 
     #Count paragraphs that include topics, and how many of those paragraph that contains positive vs negative words.
@@ -493,7 +410,7 @@ for each in minutes_list_url:
     temp_dict['frequency_share'] = (temp_dict['frequency'] / len(sentences))*100
     minutes_all_tables = pd.concat([minutes_all_tables, temp_dict])
 
-
+    #Labor
 
     temp_dict = dict()
     for sen in sentences:

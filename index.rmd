@@ -38,10 +38,6 @@ df <- read.table(
 "data\\fomcMinutesSummary.csv",  ##på detta sätt läser den ur aktuell mapp
   sep=",", header=TRUE)
 
-#df <- read.table(
-##C:\\Users\\chris\\Documents\\Python\\Applied Text Mining in Python\\words_fomc3.csv", 
-#  sep=",", header=TRUE)
-
 
 #Change dates
 df <- df %>%
@@ -51,8 +47,6 @@ df <- df %>%
 #arrange
 df <- arrange(df, date)
 
-
-##denna funkar ej. berÃ¤kna antal protokoll
 
 
 #numrera antal protokoll
@@ -78,23 +72,6 @@ df <- df  %>%
 #exclude first three rows to only include when 3m_moving is on
 df <-df %>%
   filter(num > 3)
-
-####Fill in ma_3m with same conditions, otherwise dont show these in plots?
-
-#df <- df %>%
-#  group_by(subject, additional) %>% 
- # fill(ma_3m, .direction = c("up"))%>%
-  #  fill(ma_3m_share, .direction = c("up"))%>%
-  #as.data.frame(df)
-
-
-###sliding mean
-#df <- df  %>%
- # group_by(subject, additional) %>% 
-#  mutate(avg_st = slide_index_dbl(frequency, date, mean, .before=lubridate::years(1), .after=0,.complete=T)) %>%
-#  mutate(avg_lt = mean(frequency))%>%
-#  mutate(avg_st_share = slide_index_dbl(frequency_share, date, mean, .before=lubridate::years(1), .after=0,.complete=T))%>%
-#  mutate(avg_lt_share = mean(frequency_share))
 
 #one minute lag
 df <- df %>%
@@ -162,11 +139,12 @@ cat(header)
 
 ---
 
-*What did Fed say? With the help of text mining, this report aims to gain insights and colour from FOMC Minutes and to make plots out of words.*
+What did Fed say? With the help of text mining in Python and R, this report aims to gain insights and colour from FOMC Minutes and to make plots out of words.
 
-*To be able to to compare Minutes by different length with each other, everything below is set in relation to total the number of words or paragraph in their respective Minutes. Please see more information at [description and methodology](#description-and-methodology).*
+To be able to to compare Minutes by different length with each other, everything below is set in relation to total the number of words or paragraph in their respective Minutes. Please see *[github](https://github.com/cnordenlow/text-mining-fomc)* for methodology.
 
-*Contents include:*
+
+**Contents include:**
 
 [General sentiment](#general-sentiment) 
 
@@ -398,7 +376,7 @@ temp <- df %>%
   select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
   mutate(y_axis = chg_avg_st_share,
          x_axis = chg_avg_lt_share,
-         plot_size = frequency_share)
+         bubble_size = frequency_share)
 
 
 
@@ -412,35 +390,10 @@ c_y_axis = "Difference vs short term average"
 #https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
 
 #https://ggrepel.slowkow.com/articles/examples.html
-p <- ggplot(temp, aes(x_axis, y_axis)) +
-  geom_point(aes(size=plot_size, color=subject)) +
-#  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
-  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
-#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
 
-    geom_hline(yintercept=0) + geom_vline(xintercept=0) +
-  theme_minimal() +
-  
-  theme(legend.position="bottom",
-        plot.caption=element_text(hjust=0),
-        plot.subtitle=element_text(face="italic"),
-        plot.title=element_text(size=16,face="bold"))+
-  
-      labs(x=c_x_axis,y=c_y_axis,
-       title=c_title,
-       subtitle=c_subtitle,
-       caption=c_caption)+
-  
-  theme(legend.position = "none")+
-  
-  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, fontface="italic",hjust = 1)+
-  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, fontface="italic",hjust = 1)+
-  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
-  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
 
-  
-  
-p  
+p
   
 
 ```
@@ -542,7 +495,7 @@ temp <- df %>%
   select(subject, frequency_share, chg_avg_st_share, chg_avg_lt_share)%>%
   mutate(y_axis = chg_avg_st_share,
          x_axis = chg_avg_lt_share,
-         plot_size = frequency_share)
+         bubble_size = frequency_share)
 
 
 
@@ -553,39 +506,13 @@ c_x_axis = "Difference vs long term average"
 c_y_axis = "Difference vs short term average"
 
 
+
+p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis)
+
+p
+
 #https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
 
-#https://ggrepel.slowkow.com/articles/examples.html
-p <- ggplot(temp, aes(x_axis, y_axis)) +
-  geom_point(aes(size=plot_size, color=subject)) +
-#  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
-  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
-#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
-
-    geom_hline(yintercept=0) + geom_vline(xintercept=0) +
-  theme_minimal() +
-  
-  theme(legend.position="bottom",
-        plot.caption=element_text(hjust=0),
-        plot.subtitle=element_text(face="italic"),
-        plot.title=element_text(size=16,face="bold"))+
-  
-      labs(x=c_x_axis,y=c_y_axis,
-       title=c_title,
-       subtitle=c_subtitle,
-       caption=c_caption)+
-  
-  theme(legend.position = "none")+
-  
-  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, fontface="italic",hjust = 1)+
-  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, fontface="italic",hjust = 1)+
-  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
-  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
-
-  
-  
-p  
-  
 
 ```
 
@@ -776,7 +703,7 @@ temp <- df %>%
 
 c_title = "Accommodative-O-Meter"
 c_subtitle = "The use of the word accommodative (3m moving avg). \nLong term average in red, fed funds rate in blue (not fit to scale)."
-c_caption = "Source: FOMC Minutes, own calculations. Long term average in red, fed funds rate in blue (not fit to scale)."
+c_caption = "Source: FOMC Minutes, own calculations."
 c_x_axis = ""
 c_y_axis = "Share of paragraphs"
 
@@ -1002,37 +929,6 @@ p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_capti
 p
 
 
-#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
-
-#https://ggrepel.slowkow.com/articles/examples.html
-#p <- ggplot(temp, aes(x_axis, y_axis)) +
- #geom_point(aes(size=plot_size, color=subject)) +
-##  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
-#  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
-#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
-
-  #  geom_hline(yintercept=0) + geom_vline(xintercept=0) +
-#  theme_minimal() +
-  
-  #theme(legend.position="bottom",
-     #   plot.caption=element_text(hjust=0),
-    #    plot.subtitle=element_text(face="italic"),
-   #     plot.title=element_text(size=16,face="bold"))+
-  #
-     # labs(x=c_x_axis,y=c_y_axis,
-    #   title=c_title,
-   #    subtitle=c_subtitle,
-  #     caption=c_caption)+
- # 
-#  theme(legend.position = "none")+
-  
-#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, #fontface="italic",hjust = 1)+
-#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, #fontface="italic",hjust = 1)+
-#  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, #fontface="italic",hjust = 0)+
-#  annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, #fontface="italic",hjust = 0)
-
-  
-  
 
 
 
@@ -1075,39 +971,4 @@ p
 
 
 ```
-
-
----
-
-### Description and Methodology
-
-
-Code available on *[github](https://github.com/cnordenlow/fomc-word-watcher)*.
-
-
-<p>**Methodology**<br>
-The approach of this project are as follows.</p>
-* Words and topics are divided into bag of words of its meaning (e.g. the word "strong" may consists of ["strong", "stronger", "strongest", "strengthen"]). </p>
-* Text are divided into sentences that cleaned for special characters, extra spaces and then tokenized and lemmatized, then converted back to a sentence.</p>
-* All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word "stronger" is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop followed which counts negative and positive words in the same sentence to get the net sentiment for each topic.  </p>
-
-*The purpose with the bag of words format is to being able to get part  of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it´s not sufficient to map a sentence with the word of "reduce" and "asset purchase" in the same, but it´s needed to get more of the context for being (more) sure of the meaning.*
-
-The methodology used in this project include use of Python for web parsing and text mining, producing .csv files. R is then used for some additional calculations and to render a Markdown report with vizualisations. Some notes below of the different parts.
-
-</p>
-
-
-
-<p>**Web parsing**<br>
-All web parsing is done using BeautifulSoup package. The code first parse all .htm pages with the url of "Minutes" in it for the year of interest. Then, a second loop parse all the (chosen) Minutes for the text mining. In both parsing steps, there are a time delay of a couple of seconds.</p>
-
-<p>**Text mining**<br>
-With the help of the great package of NLTK, the Minutes are cleaned and converted to a more gentle format. A pretty long(:/) loop are then iterated that runs a set of inner loops for getting the information for each Minutes.</p>
-
-<p>**Vizualisation**<br>
-R is used for some further calculations and Markdown for creating a report.</p>
-
-
-
 

@@ -7,7 +7,7 @@ What did Fed say? With the help of text mining, this project aims to gain insigh
 For this project, both Python and R are used. Please see a short description for each script.
 
 * **getFedFundsRate.py** are parsing all chosen statements to get the Fed Funds rate for each meeting. It´s saved as an csv named fedFundsRate in subfolder Data.
-* **iterateMinutes.py** is the main loop for partsin and text mining all chosen Minutes. Each minutes are iterated in a for loop that extract word data. Everything is then joined in a table that is saved as a .csv saved in subfolder Data. The purpose of saving these files are to be able to put down more time on the plotting between meetings without needing to parse all Minutes each time.
+* **iterateMinutes.py** is the main loop for parsing and text mining all chosen Minutes. Each minutes are iterated in a for loop that extract word data. Everything is then joined in a table that is saved as a .csv saved in subfolder Data. The purpose of saving these files are to be able to put down more time on the plotting between meetings without needing to parse all Minutes each time.
 
 * **r_plots.r** is a script with a couple of plots that are reused multiple times in the Markdown report.
 * **index.rmd** is doing some additional data wrangling and are sen producing the report. Gglots are used.
@@ -25,15 +25,15 @@ The approach of this project are as follows.
 
 * All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word "stronger" is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop followed which counts negative and positive words in the same sentence to get the net sentiment for each topic. 
 
+* To be able to to compare Minutes by different length with each other, everything is set in relation to total the number of words or paragraph in their respective Minutes. 
+
 *The purpose with the bag of words format is to being able to get part  of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it may not be sufficient to map a sentence with the word of "increase" and "asset purchase" in the same, but there a for some subjects meaningful to have longer parts of a meaning.*
 
 
 * Web parsing
 All web parsing is done using BeautifulSoup package. The code first parse all .htm pages with the url of "Minutes" in it for the years of interest. Then, a second loop parse all the (chosen) Minutes for the text mining. In both parsing steps, there are a time delay of a couple of seconds.
-
 * Text mining
 With the help of the great package of NLTK, the Minutes are cleaned and converted to a more gentle format. A loop is then iterated that runs a set of inner loops for getting the information for each Minutes.
-
 * Vizualisation and report
 R is used for some further calculations and Markdown for creating a report.
 

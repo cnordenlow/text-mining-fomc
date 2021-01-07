@@ -30,13 +30,12 @@ The approach of this project are as follows.
 *The purpose with the bag of words format is to being able to get part  of sentences grouped for their meaning. E.g. for being able to find more colour on asset purchases (tapering amounts, reducing the program, increasing the program), it may not be sufficient to map a sentence with the word of "increase" and "asset purchase" in the same, but there a for some subjects meaningful to have longer parts of a meaning.*
 
 
-* Web parsing
-All web parsing is done using BeautifulSoup package. The code first parse all .htm pages with the url of "Minutes" in it for the years of interest. Then, a second loop parse all the (chosen) Minutes for the text mining. In both parsing steps, there are a time delay of a couple of seconds.
-* Text mining
-With the help of the great package of NLTK, the Minutes are cleaned and converted to a more gentle format. A loop is then iterated that runs a set of inner loops for getting the information for each Minutes.
-* Vizualisation and report
-R is used for some further calculations and Markdown for creating a report.
-
+* Web parsing<br>
+All web parsing is done using BeautifulSoup package. The code first parse all .htm pages with the url of "Minutes" in it for the years of interest. Then, a second loop parse all the (chosen) Minutes for the text mining. In both parsing steps, there are a time delay of a couple of seconds.<br>
+* Text mining<br>
+With the help of the great package of NLTK, the Minutes are cleaned and converted to a more gentle format. A loop is then iterated that runs a set of inner loops for getting the information for each Minutes.<br>
+* Vizualisation and report<br>
+R is used for some further calculations and Markdown for creating a report.<br>
 
 ### Setup
 

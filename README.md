@@ -50,22 +50,22 @@ In the beginning of both Python scripts there it is a possibility to write in th
 
 import urllib.request, urllib.parse, urllib.error <br>
 from bs4 import BeautifulSoup <br>
-import nltk
-from nltk import sent_tokenize
-from nltk import word_tokenize
-from nltk.probability import FreqDist
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize.treebank import TreebankWordDetokenizer
-import re
-import pandas as pd
-import time
-import random
+import nltk <br>
+from nltk import sent_tokenize <br>
+from nltk import word_tokenize <br>
+from nltk.probability import FreqDist <br>
+from nltk.stem import WordNetLemmatizer <br>
+from nltk.tokenize.treebank import TreebankWordDetokenizer <br>
+import re <br>
+import pandas as pd <br>
+import time <br>
+import random <br>
 
 **R**
-install.packages("rmarkdown")
-library(tidyverse)
-library(slider)
-library(lubridate)
-library(ggrepel)
-library("rstudioapi")   
-library(reticulate)
+install.packages("rmarkdown") <br>
+library(tidyverse) <br>
+library(slider) <br>
+library(lubridate) <br>
+library(ggrepel) <br>
+library("rstudioapi")    <br>
+library(reticulate) <br>

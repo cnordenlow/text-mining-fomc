@@ -45,9 +45,6 @@ In the beginning of both Python scripts there it is a possibility to write in th
 import urllib.request, urllib.parse, urllib.error <br>
 from bs4 import BeautifulSoup <br>
 import nltk <br>
-from nltk import sent_tokenize <br>
-from nltk import word_tokenize <br>
-from nltk.probability import FreqDist <br>
 from nltk.stem import WordNetLemmatizer <br>
 from nltk.tokenize.treebank import TreebankWordDetokenizer <br>
 import re <br>

@@ -60,5 +60,5 @@ library(tidyverse) <br>
 library(slider) <br>
 library(lubridate) <br>
 library(ggrepel) <br>
-library("rstudioapi")    <br>
+library(rstudioapi)    <br>
 library(reticulate) <br>

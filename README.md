@@ -12,9 +12,9 @@ The approach of this project are as follows.
 
 * Text are divided into sentences as well as words. For some parts we use the full sentences, and for some cleaned sentences and words are used. NLTK package is used.
 
-* All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word "stronger" is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop followed which counts negative and positive words in the same sentence to get the net sentiment for each topic. 
+* All sentences are iterated where it checks for the different bag of words and then counted, (e.g. if the word "stronger" is found in a sentence, the count adds one regardless of how many time strong is in the sentence.) For most topics, a second loop follows which counts negative and positive words in the same sentence to get the net sentiment for each topic. 
 
-* R is used for some further calculations and Markdown for creating a report.
+* R is used for some additional calculations and Markdown for creating a report.
 
 *To be able to to compare Minutes by different length with each other, everything is set in relation to total the number of words or paragraph in their respective Minutes.*
 

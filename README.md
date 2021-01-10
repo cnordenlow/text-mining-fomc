@@ -1,6 +1,6 @@
 ## Text Mining FOMC
 
-What did Fed say? With the help of text mining, this project aims to gain insights and colour from FOMC Minutes and to make plots out of words.
+FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they didn´t say.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.
 
 ### Methodology
 

@@ -29,7 +29,7 @@ For this project, both Python and R are used. Please see a short description for
 * **iterateMinutes.py** is the main loop for parsing and text mining all chosen Minutes. Each minutes are iterated in a for loop that extract word data. Everything is then joined in a table that is saved as a .csv saved in subfolder Data. The purpose of saving these files are to be able to put down more time on the plotting between meetings without needing to parse all Minutes each time.
 
 * **r_plots.r** is a script with a couple of plots that are reused multiple times in the Markdown report.
-* **index.rmd** is doing some additional data wrangling and are sen producing the report. Gglots are used.
+* **index.rmd** is doing some additional data wrangling and producing the report. Gglots are used.
 * **runAllScripts.r** can run all scripts together using Reticulate-package in R for running Python.
 
 

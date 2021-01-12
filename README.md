@@ -1,6 +1,6 @@
 ## Text Mining FOMC
 
-FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they didn´t say.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.
+FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they really meant.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.
 
 ### Methodology
 
@@ -25,6 +25,8 @@ The approach of this project are as follows.
 
 For this project, both Python and R are used. Please see a short description for each script.
 
+
+* **fomcTopicDefinitions.py** are definitions for different topics with bag of words. Also Loughran-McDonald dicitonary. 
 * **getFedFundsRate.py** are parsing all chosen statements to get the Fed Funds rate for each meeting. It´s saved as an csv named fedFundsRate in subfolder Data.
 * **iterateMinutes.py** is the main loop for parsing and text mining all chosen Minutes. Each minutes are iterated in a for loop that extract word data. Everything is then joined in a table that is saved as a .csv saved in subfolder Data. The purpose of saving these files are to be able to put down more time on the plotting between meetings without needing to parse all Minutes each time.
 
@@ -37,7 +39,7 @@ For this project, both Python and R are used. Please see a short description for
 
 To run this project, cloone it and install it locally. It´s takes aprox 20 minutes to run due to sleep-function of 3 to 7 seconds between each parsed Statement and Minutes.
 
-In the beginning of both Python scripts there it is a possibility to write in the number of statements and minutes to parse. I would recommend to change it to 5 when trying.
+In the beginning of both Python scripts there  is a possibility to write in the number of statements and minutes to parse. I would recommend to change it to 5 when testing.
 
 #### Packages needed
 **Python**

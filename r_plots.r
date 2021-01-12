@@ -5,14 +5,6 @@
 ###
 plot_bubble <- function(temp, x_axis, y_axis,bubble_size, c_title, c_subtitle, c_caption, c_x_axis, c_y_axis){
 
-  
-  
-  
-  
-  
-#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
-
-#https://ggrepel.slowkow.com/articles/examples.html
 p <- ggplot(data=temp, aes(x = x_axis, y = y_axis)) +
   geom_point(aes(size=bubble_size, color=subject)) +
   #  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
@@ -39,12 +31,7 @@ p <- ggplot(data=temp, aes(x = x_axis, y = y_axis)) +
   annotate(geom="text", x=-max(abs(temp$x_axis))*1.15, y=-max(abs(temp$y_axis))*1.25, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
   annotate(geom="text", x=-max(abs(temp$x_axis))*1.15, y=max(abs(temp$y_axis))*1.25, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
 
-
-
-
 }
-
-
 
 
 

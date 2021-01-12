@@ -139,7 +139,7 @@ cat(header)
 
 ---
 
-What did Fed say? With the help of text mining in Python and R, this report aims to gain insights and colour from FOMC Minutes and to make plots out of words.
+FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they didn´t say.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.
 
 To be able to to compare Minutes by different length with each other, everything below is set in relation to total the number of words or paragraph in their respective Minutes. Please see *[github](https://github.com/cnordenlow/text-mining-fomc)* for methodology.
 
@@ -180,7 +180,7 @@ temp <- df %>%
 
 c_title = "Net sentiment index"
 c_subtitle = "Net sentiment (positive - negative words) vs average"
-c_caption = "Source: FOMC Minutes, own calculations."
+c_caption = "Source: FOMC Minutes, Loughran-McDonald dicitonary, own calculations."
 c_x_axis = ""
 c_y_axis = "Sentiment index"
 
@@ -231,7 +231,7 @@ temp <- df %>%
 
 c_title = "Intensifier-index"
 c_subtitle = "Intensifier-index shows the magnutide of positive and negative words (3m moving avg). \n Long term average in red, fed funds rate in blue (not fit to scale)."
-c_caption = "Source: FOMC Minutes, own calculations. \nIntensifier-index calulates the difference between positive and negative words in combination with intensifiers."
+c_caption = "Source: FOMC Minutes, Loughran-McDonald dicitonary, own calculations. \nIntensifier-index calulates the difference between positive and negative words in combination with intensifiers."
 c_x_axis = ""
 c_y_axis = "Index"
 
@@ -321,39 +321,6 @@ p <- plot_bubble(temp, x_axis, y_axis, bubble_size, c_title, c_subtitle, c_capti
 
 p
 
-#https://gist.github.com/grigory93/f370c5eb997fc74b7b7ec83e73d4dffa#file-ggplot2-data-r
-
-#https://ggrepel.slowkow.com/articles/examples.html
-#p <- ggplot(temp, aes(x_axis, y_axis)) +
- # geom_point(aes(size=plot_size, color=subject)) +
-#  geom_text(aes(label=subject), size=4,position=position_jitter(width=1,height=2)) +
-#  geom_text_repel(aes(label=subject),min.segment.length = 0, seed = 42, box.padding = 0.7)+
-#  geom_text(aes(label=subject), size=4, nudge_x=0.0, nudge_y=-0.15,position=position_jitter(width=,height=1)) +
-
- #   geom_hline(yintercept=0) + geom_vline(xintercept=0) +
-#  theme_minimal() +
-  
- # theme(legend.position="bottom",
-  #      plot.caption=element_text(hjust=0),
-  #      plot.subtitle=element_text(face="italic"),
-   #     plot.title=element_text(size=16,face="bold"))+
-  
-
-    #  labs(x=c_x_axis,y=c_y_axis,
-     #  title=c_title,
-      # subtitle=c_subtitle,
-       #caption=c_caption)+
-  
-  #theme(legend.position = "none")+
-  
-#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Cooking", color="black",size=4, fontface="italic",hjust = 1)+
-#  annotate(geom="text", x=max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="Fading", color="black",size=4, fontface="italic",hjust = 1)+
- # annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=-max(abs(temp$y_axis))*1.20, label="In the drawer", color="black",size=4, fontface="italic",hjust = 0)+
-  #annotate(geom="text", x=-max(abs(temp$x_axis))*1.20, y=max(abs(temp$y_axis))*1.20, label="Up and coming", color="black",size=4, fontface="italic",hjust = 0)
-
-  
-  
-#p  
 
 ```
 
@@ -434,7 +401,7 @@ temp$group <- factor(temp$name, levels = c("Current sentiment","Difference vs sh
 
 c_title = "Sentiment per topic"
 c_subtitle = "Net sentiment (positive - negative words) for each topic."
-c_caption = "Source: FOMC Minutes, own calculations."
+c_caption = "Source: FOMC Minutes, Loughran-McDonald dicitonary, own calculations."
 c_x_axis = "Topic"
 c_y_axis = "Net sentiment per topic"
 
@@ -458,9 +425,6 @@ plot <- ggplot(data = temp,
        caption=c_caption)+
   
   theme_light()+
-#  theme(strip.background =element_blank(),
- #       panel.grid.minor.x = element_blank(),
-  #      panel.grid.minor.y = element_blank())+
   theme(
       strip.background =element_blank(),  
       legend.position="bottom",

@@ -25,7 +25,7 @@ topics =    {'broad_topics' :
                 'Financial markets' : ["financial market", "market for"],
                 'Credit markets' : ["speculative grade", "investment grade", "credit spread", "credit market", "consumer loan", "bond issuance"],
                 'Stocks' : ["equity", "equities", "stock"],
-                'Yield curve' : ["yield curve", "steepened", "flattened","treasury curve"],
+                'Yield curve' : ["yield curve", "steepened", "flattened","treasury curve", "steep"],
                 'Financing conditions' : ["funding markets", "financing conditions", "financing for", "refinancing activity", "loan origination"],
                 'US Dollar' : ["against the dollar", "dollar index", "exchange value of the dollar", "broad dollar", "dollar depreciating", "dollar apreciating"],
                 'Volatility' : ["volatility", "vix", "volatile"]

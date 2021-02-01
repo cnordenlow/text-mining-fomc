@@ -7,6 +7,12 @@ output:
     highlight: github
 ---
 
+<style type="text/css">
+  body{
+  font-size: 11pt;
+}
+</style>
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -144,15 +150,15 @@ FOMC Minutes are usually a hot topic on the financial markets. There are plenty 
 To be able to to compare Minutes by different length with each other, everything below is set in relation to total the number of words or paragraph in their respective Minutes. Please see *[github](https://github.com/cnordenlow/text-mining-fomc)* for methodology.
 
 
-**Contents include:**
+**Table of Contents**
 
-[General sentiment](#general-sentiment) 
+* [General sentiment](#general-sentiment) 
 
-[Economic and financial market conditions](#economic-and-financial-market-conditions-analysis) 
+* [Economic and financial market conditions](#economic-and-financial-market-conditions-analysis) 
 
-[Policy toolbox and topics](#policy-toolbox-and-topics) 
+* [Policy toolbox and topics](#policy-toolbox-and-topics) 
 
-[In deeper breakdown of selected topics](#in-deeper-breakdown) 
+* [In deeper breakdown of selected topics](#in-deeper-breakdown) 
  
 
 ---
@@ -208,7 +214,7 @@ p
 ```
 
 
-#### Intensifier-index
+#### Intensifier index
 *Intensifier-index shows the magnitude of the net sentiment by setting positive and negative words in combination with intensifier words (e.g. extremely, significant, sharply etc).*
 
 ```{r,echo=FALSE, messages=FALSE}
@@ -229,7 +235,7 @@ temp <- df %>%
 
 
 
-c_title = "Intensifier-index"
+c_title = "Intensifier index"
 c_subtitle = "Intensifier-index shows the magnutide of positive and negative words (3m moving avg). \n Long term average in red, fed funds rate in blue (not fit to scale)."
 c_caption = "Source: FOMC Minutes, Loughran-McDonald dicitonary, own calculations. \nIntensifier-index calulates the difference between positive and negative words in combination with intensifiers."
 c_x_axis = ""

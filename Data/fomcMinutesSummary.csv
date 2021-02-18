@@ -1,4 +1,37 @@
 date,category,additional,subject,frequency,frequency_share
+20210127,general_information,N/A,number_words,13263.0,0
+20210127,general_information,N/A,number_sentences,451.0,0
+20210127,general_information,N/A,word_per_sentences,29.407982261640797,0
+20210127,sentiment,N/A,positive,183.0,40.57649667405765
+20210127,sentiment,N/A,net_sentiment,-9.0,-1.9955654101995564
+20210127,sentiment,N/A,negative,192.0,42.572062084257205
+20210127,intensifiers,count_words,intensifiers,43.0,9.534368070953436
+20210127,intensifiers,count_words,intensifiers_neg,30.0,6.651884700665188
+20210127,intensifiers,count_words,intensifiers_net,-4.0,-0.8869179600886918
+20210127,intensifiers,count_words,intensifiers_pos,26.0,5.764966740576496
+20210127,in_deep_asset_program,count_words,Size,0.0,0.0
+20210127,in_deep_asset_program,count_words,Composition,0.0,0.0
+20210127,in_deep_asset_program,count_words,Pace,3.0,0.6651884700665188
+20210127,in_deep_asset_program,count_words,Keep same size,0.0,0.0
+20210127,in_deep_asset_program,count_words,Increase size,2.0,0.4434589800443459
+20210127,in_deep_asset_program,count_words,Reduce size,0.0,0.0
+20210127,in_deep_asset_program,count_words,Taper amounts,0.0,0.0
+20210127,in_deep_asset_program,count_words,Guidance,3.0,0.6651884700665188
+20210127,in_deep_asset_program,count_words,Longer maturity,0.0,0.0
+20210127,in_deep_inflation,count_words,Symmetric,0.0,0.0
+20210127,in_deep_inflation,count_words,Compensation,4.0,0.8869179600886918
+20210127,in_deep_inflation,count_words,Core,1.0,0.22172949002217296
+20210127,in_deep_inflation,count_words,Term premium,0.0,0.0
+20210127,in_deep_inflation,count_words,Wages,0.0,0.0
+20210127,in_deep_inflation,count_words,Energy,2.0,0.4434589800443459
+20210127,in_deep_inflation,count_words,Long-term expectations,0.0,0.0
+20210127,in_deep_inflation,count_words,Average inflation targeting,4.0,0.8869179600886918
+20210127,in_deep_labor,count_words,Slack ,0.0,0.0
+20210127,in_deep_labor,count_words,Job gains,1.0,0.22172949002217296
+20210127,in_deep_labor,count_words,Supply,0.0,0.0
+20210127,in_deep_labor,count_words,Participation rate,1.0,0.22172949002217296
+20210127,in_deep_labor,count_words,Unemployment,8.0,1.7738359201773837
+20210127,in_deep_labor,count_words,Maximum employment,18.0,3.9911308203991127
 20200129,general_information,N/A,number_words,13761.0,0
 20200129,general_information,N/A,number_sentences,450.0,0
 20200129,general_information,N/A,word_per_sentences,30.58,0
@@ -164,9 +197,9 @@ date,category,additional,subject,frequency,frequency_share
 20200729,in_deep_labor,count_words,Participation rate,1.0,0.31545741324921134
 20200729,in_deep_labor,count_words,Unemployment,10.0,3.1545741324921135
 20200729,in_deep_labor,count_words,Maximum employment,9.0,2.8391167192429023
-20200916,general_information,N/A,number_words,10789.0,0
+20200916,general_information,N/A,number_words,10782.0,0
 20200916,general_information,N/A,number_sentences,367.0,0
-20200916,general_information,N/A,word_per_sentences,29.39782016348774,0
+20200916,general_information,N/A,word_per_sentences,29.37874659400545,0
 20200916,sentiment,N/A,positive,179.0,48.77384196185286
 20200916,sentiment,N/A,net_sentiment,11.0,2.997275204359673
 20200916,sentiment,N/A,negative,168.0,45.776566757493185
@@ -1220,9 +1253,9 @@ date,category,additional,subject,frequency,frequency_share
 20160727,in_deep_labor,count_words,Participation rate,3.0,0.8875739644970414
 20160727,in_deep_labor,count_words,Unemployment,12.0,3.5502958579881656
 20160727,in_deep_labor,count_words,Maximum employment,9.0,2.6627218934911245
-20160921,general_information,N/A,number_words,11501.0,0
+20160921,general_information,N/A,number_words,11495.0,0
 20160921,general_information,N/A,number_sentences,339.0,0
-20160921,general_information,N/A,word_per_sentences,33.926253687315636,0
+20160921,general_information,N/A,word_per_sentences,33.908554572271385,0
 20160921,sentiment,N/A,positive,106.0,31.268436578171094
 20160921,sentiment,N/A,net_sentiment,-53.0,-15.634218289085547
 20160921,sentiment,N/A,negative,159.0,46.902654867256636
@@ -1517,9 +1550,9 @@ date,category,additional,subject,frequency,frequency_share
 20150917,in_deep_labor,count_words,Participation rate,2.0,0.796812749003984
 20150917,in_deep_labor,count_words,Unemployment,13.0,5.179282868525896
 20150917,in_deep_labor,count_words,Maximum employment,8.0,3.187250996015936
-20151028,general_information,N/A,number_words,8868.0,0
+20151028,general_information,N/A,number_words,8857.0,0
 20151028,general_information,N/A,number_sentences,277.0,0
-20151028,general_information,N/A,word_per_sentences,32.014440433213,0
+20151028,general_information,N/A,word_per_sentences,31.974729241877256,0
 20151028,sentiment,N/A,positive,98.0,35.37906137184115
 20151028,sentiment,N/A,net_sentiment,-84.0,-30.324909747292416
 20151028,sentiment,N/A,negative,182.0,65.70397111913357
@@ -2903,6 +2936,174 @@ date,category,additional,subject,frequency,frequency_share
 20101214,in_deep_labor,count_words,Participation rate,1.0,0.42194092827004215
 20101214,in_deep_labor,count_words,Unemployment,11.0,4.641350210970464
 20101214,in_deep_labor,count_words,Maximum employment,7.0,2.9535864978902953
+20210127,broad_topics,count_words,Economy,67,14.855875831485587
+20210127,broad_topics,count_words,Labor,76,16.851441241685144
+20210127,broad_topics,count_words,Consumer,26,5.764966740576496
+20210127,broad_topics,count_words,Inflation,52,11.529933481152993
+20210127,broad_topics,count_words,Manufacturing,26,5.764966740576496
+20210127,broad_topics,count_words,Housing,26,5.764966740576496
+20210127,broad_topics,count_words,Commodities,6,1.3303769401330376
+20210127,broad_topics,count_words,Trade,16,3.5476718403547673
+20210127,broad_topics,count_words,Demand,12,2.6607538802660753
+20210127,broad_topics,count_words,Foreign,56,12.416851441241686
+20210127,broad_topics,count_negative_words_in_paragraph,Economy,33,7.317073170731707
+20210127,broad_topics,count_negative_words_in_paragraph,Labor,52,11.529933481152993
+20210127,broad_topics,count_negative_words_in_paragraph,Consumer,12,2.6607538802660753
+20210127,broad_topics,count_negative_words_in_paragraph,Inflation,21,4.656319290465632
+20210127,broad_topics,count_negative_words_in_paragraph,Manufacturing,9,1.9955654101995564
+20210127,broad_topics,count_negative_words_in_paragraph,Housing,9,1.9955654101995564
+20210127,broad_topics,count_negative_words_in_paragraph,Commodities,5,1.1086474501108647
+20210127,broad_topics,count_negative_words_in_paragraph,Trade,10,2.2172949002217295
+20210127,broad_topics,count_negative_words_in_paragraph,Demand,10,2.2172949002217295
+20210127,broad_topics,count_negative_words_in_paragraph,Foreign,9,1.9955654101995564
+20210127,broad_topics,count_positive_words_in_paragraph,Economy,42,9.312638580931264
+20210127,broad_topics,count_positive_words_in_paragraph,Labor,36,7.982261640798225
+20210127,broad_topics,count_positive_words_in_paragraph,Consumer,11,2.4390243902439024
+20210127,broad_topics,count_positive_words_in_paragraph,Inflation,13,2.882483370288248
+20210127,broad_topics,count_positive_words_in_paragraph,Manufacturing,11,2.4390243902439024
+20210127,broad_topics,count_positive_words_in_paragraph,Housing,13,2.882483370288248
+20210127,broad_topics,count_positive_words_in_paragraph,Commodities,0,0.0
+20210127,broad_topics,count_positive_words_in_paragraph,Trade,8,1.7738359201773837
+20210127,broad_topics,count_positive_words_in_paragraph,Demand,2,0.4434589800443459
+20210127,broad_topics,count_positive_words_in_paragraph,Foreign,9,1.9955654101995564
+20210127,broad_topics,net_sentiment_per_topic,Economy,9,1.9955654101995564
+20210127,broad_topics,net_sentiment_per_topic,Labor,-16,-3.5476718403547673
+20210127,broad_topics,net_sentiment_per_topic,Consumer,-1,-0.22172949002217296
+20210127,broad_topics,net_sentiment_per_topic,Inflation,-8,-1.7738359201773837
+20210127,broad_topics,net_sentiment_per_topic,Manufacturing,2,0.4434589800443459
+20210127,broad_topics,net_sentiment_per_topic,Housing,4,0.8869179600886918
+20210127,broad_topics,net_sentiment_per_topic,Commodities,-5,-1.1086474501108647
+20210127,broad_topics,net_sentiment_per_topic,Trade,-2,-0.4434589800443459
+20210127,broad_topics,net_sentiment_per_topic,Demand,-8,-1.7738359201773837
+20210127,broad_topics,net_sentiment_per_topic,Foreign,0,0.0
+20210127,financial_conditions,count_words,Money market,3,0.6651884700665188
+20210127,financial_conditions,count_words,Financial markets,7,1.5521064301552108
+20210127,financial_conditions,count_words,Credit markets,4,0.8869179600886918
+20210127,financial_conditions,count_words,Stocks,9,1.9955654101995564
+20210127,financial_conditions,count_words,Yield curve,5,1.1086474501108647
+20210127,financial_conditions,count_words,Financing conditions,2,0.4434589800443459
+20210127,financial_conditions,count_words,US Dollar,3,0.6651884700665188
+20210127,financial_conditions,count_words,Volatility,2,0.4434589800443459
+20210127,financial_conditions,count_negative_words_in_paragraph,Money market,2,0.4434589800443459
+20210127,financial_conditions,count_negative_words_in_paragraph,Financial markets,2,0.4434589800443459
+20210127,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.4434589800443459
+20210127,financial_conditions,count_negative_words_in_paragraph,Stocks,1,0.22172949002217296
+20210127,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20210127,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
+20210127,financial_conditions,count_negative_words_in_paragraph,US Dollar,3,0.6651884700665188
+20210127,financial_conditions,count_negative_words_in_paragraph,Volatility,2,0.4434589800443459
+20210127,financial_conditions,count_positive_words_in_paragraph,Money market,2,0.4434589800443459
+20210127,financial_conditions,count_positive_words_in_paragraph,Financial markets,1,0.22172949002217296
+20210127,financial_conditions,count_positive_words_in_paragraph,Credit markets,2,0.4434589800443459
+20210127,financial_conditions,count_positive_words_in_paragraph,Stocks,2,0.4434589800443459
+20210127,financial_conditions,count_positive_words_in_paragraph,Yield curve,2,0.4434589800443459
+20210127,financial_conditions,count_positive_words_in_paragraph,Financing conditions,1,0.22172949002217296
+20210127,financial_conditions,count_positive_words_in_paragraph,US Dollar,0,0.0
+20210127,financial_conditions,count_positive_words_in_paragraph,Volatility,0,0.0
+20210127,financial_conditions,net_sentiment_per_topic,Money market,0,0.0
+20210127,financial_conditions,net_sentiment_per_topic,Financial markets,-1,-0.22172949002217296
+20210127,financial_conditions,net_sentiment_per_topic,Credit markets,0,0.0
+20210127,financial_conditions,net_sentiment_per_topic,Stocks,1,0.22172949002217296
+20210127,financial_conditions,net_sentiment_per_topic,Yield curve,2,0.4434589800443459
+20210127,financial_conditions,net_sentiment_per_topic,Financing conditions,1,0.22172949002217296
+20210127,financial_conditions,net_sentiment_per_topic,US Dollar,-3,-0.6651884700665188
+20210127,financial_conditions,net_sentiment_per_topic,Volatility,-2,-0.4434589800443459
+20210127,policy_topics,count_words,Federal funds rate,7,1.5521064301552108
+20210127,policy_topics,count_words,Yield curve control,0,0.0
+20210127,policy_topics,count_words,Asset purchases,14,3.1042128603104215
+20210127,policy_topics,count_words,Repo operations,11,2.4390243902439024
+20210127,policy_topics,count_words,Forward guidance,36,7.982261640798225
+20210127,policy_topics,count_words,Negative interest rates,0,0.0
+20210127,policy_topics,count_words,Liquidity facilities,7,1.5521064301552108
+20210127,policy_topics,count_negative_words_in_paragraph,Federal funds rate,2,0.4434589800443459
+20210127,policy_topics,count_negative_words_in_paragraph,Yield curve control,0,0.0
+20210127,policy_topics,count_negative_words_in_paragraph,Asset purchases,2,0.4434589800443459
+20210127,policy_topics,count_negative_words_in_paragraph,Repo operations,3,0.6651884700665188
+20210127,policy_topics,count_negative_words_in_paragraph,Forward guidance,14,3.1042128603104215
+20210127,policy_topics,count_negative_words_in_paragraph,Negative interest rates,0,0.0
+20210127,policy_topics,count_negative_words_in_paragraph,Liquidity facilities,1,0.22172949002217296
+20210127,policy_topics,count_positive_words_in_paragraph,Federal funds rate,1,0.22172949002217296
+20210127,policy_topics,count_positive_words_in_paragraph,Yield curve control,0,0.0
+20210127,policy_topics,count_positive_words_in_paragraph,Asset purchases,7,1.5521064301552108
+20210127,policy_topics,count_positive_words_in_paragraph,Repo operations,5,1.1086474501108647
+20210127,policy_topics,count_positive_words_in_paragraph,Forward guidance,19,4.212860310421286
+20210127,policy_topics,count_positive_words_in_paragraph,Negative interest rates,0,0.0
+20210127,policy_topics,count_positive_words_in_paragraph,Liquidity facilities,0,0.0
+20210127,policy_topics,net_sentiment_per_topic,Federal funds rate,-1,-0.22172949002217296
+20210127,policy_topics,net_sentiment_per_topic,Yield curve control,0,0.0
+20210127,policy_topics,net_sentiment_per_topic,Asset purchases,5,1.1086474501108647
+20210127,policy_topics,net_sentiment_per_topic,Repo operations,2,0.4434589800443459
+20210127,policy_topics,net_sentiment_per_topic,Forward guidance,5,1.1086474501108647
+20210127,policy_topics,net_sentiment_per_topic,Negative interest rates,0,0.0
+20210127,policy_topics,net_sentiment_per_topic,Liquidity facilities,-1,-0.22172949002217296
+20210127,policy_words,count_words,Patient,0,0.0
+20210127,policy_words,count_words,Gradual,7,1.5521064301552108
+20210127,policy_words,count_words,Normalization,1,0.22172949002217296
+20210127,policy_words,count_words,Data dependent,2,0.4434589800443459
+20210127,policy_words,count_words,Accommodative,21,4.656319290465632
+20210127,policy_words,count_words,Outcome-based guidance,3,0.6651884700665188
+20210127,policy_words,count_negative_words_in_paragraph,Patient,0,0.0
+20210127,policy_words,count_negative_words_in_paragraph,Gradual,3,0.6651884700665188
+20210127,policy_words,count_negative_words_in_paragraph,Normalization,0,0.0
+20210127,policy_words,count_negative_words_in_paragraph,Data dependent,1,0.22172949002217296
+20210127,policy_words,count_negative_words_in_paragraph,Accommodative,3,0.6651884700665188
+20210127,policy_words,count_negative_words_in_paragraph,Outcome-based guidance,1,0.22172949002217296
+20210127,policy_words,count_positive_words_in_paragraph,Patient,0,0.0
+20210127,policy_words,count_positive_words_in_paragraph,Gradual,0,0.0
+20210127,policy_words,count_positive_words_in_paragraph,Normalization,0,0.0
+20210127,policy_words,count_positive_words_in_paragraph,Data dependent,1,0.22172949002217296
+20210127,policy_words,count_positive_words_in_paragraph,Accommodative,13,2.882483370288248
+20210127,policy_words,count_positive_words_in_paragraph,Outcome-based guidance,1,0.22172949002217296
+20210127,policy_words,net_sentiment_per_topic,Patient,0,0.0
+20210127,policy_words,net_sentiment_per_topic,Gradual,-3,-0.6651884700665188
+20210127,policy_words,net_sentiment_per_topic,Normalization,0,0.0
+20210127,policy_words,net_sentiment_per_topic,Data dependent,0,0.0
+20210127,policy_words,net_sentiment_per_topic,Accommodative,10,2.2172949002217295
+20210127,policy_words,net_sentiment_per_topic,Outcome-based guidance,0,0.0
+20210127,quantitative_words,count_words,Consensus,11,2.4390243902439024
+20210127,quantitative_words,count_words,Few,3,0.6651884700665188
+20210127,quantitative_words,count_negative_words_in_paragraph,Consensus,2,0.4434589800443459
+20210127,quantitative_words,count_negative_words_in_paragraph,Few,1,0.22172949002217296
+20210127,quantitative_words,count_positive_words_in_paragraph,Consensus,4,0.8869179600886918
+20210127,quantitative_words,count_positive_words_in_paragraph,Few,1,0.22172949002217296
+20210127,quantitative_words,net_sentiment_per_topic,Consensus,2,0.4434589800443459
+20210127,quantitative_words,net_sentiment_per_topic,Few,0,0.0
+20210127,sentiment_words,count_words,Strong,21,4.656319290465632
+20210127,sentiment_words,count_words,Weak,30,6.651884700665188
+20210127,sentiment_words,count_words,Moderate,37,8.2039911308204
+20210127,sentiment_words,count_words,Uncertainty,35,7.760532150776053
+20210127,sentiment_words,count_words,Recession,0,0.0
+20210127,sentiment_words,count_words,Recovery,41,9.090909090909092
+20210127,sentiment_words,count_words,Expand,33,7.317073170731707
+20210127,sentiment_words,count_words,Decline,28,6.208425720620843
+20210127,sentiment_words,count_words,Stress,5,1.1086474501108647
+20210127,sentiment_words,count_negative_words_in_paragraph,Strong,5,1.1086474501108647
+20210127,sentiment_words,count_negative_words_in_paragraph,Weak,30,6.651884700665188
+20210127,sentiment_words,count_negative_words_in_paragraph,Moderate,21,4.656319290465632
+20210127,sentiment_words,count_negative_words_in_paragraph,Uncertainty,21,4.656319290465632
+20210127,sentiment_words,count_negative_words_in_paragraph,Recession,0,0.0
+20210127,sentiment_words,count_negative_words_in_paragraph,Recovery,21,4.656319290465632
+20210127,sentiment_words,count_negative_words_in_paragraph,Expand,13,2.882483370288248
+20210127,sentiment_words,count_negative_words_in_paragraph,Decline,28,6.208425720620843
+20210127,sentiment_words,count_negative_words_in_paragraph,Stress,5,1.1086474501108647
+20210127,sentiment_words,count_positive_words_in_paragraph,Strong,21,4.656319290465632
+20210127,sentiment_words,count_positive_words_in_paragraph,Weak,5,1.1086474501108647
+20210127,sentiment_words,count_positive_words_in_paragraph,Moderate,16,3.5476718403547673
+20210127,sentiment_words,count_positive_words_in_paragraph,Uncertainty,13,2.882483370288248
+20210127,sentiment_words,count_positive_words_in_paragraph,Recession,0,0.0
+20210127,sentiment_words,count_positive_words_in_paragraph,Recovery,29,6.430155210643015
+20210127,sentiment_words,count_positive_words_in_paragraph,Expand,17,3.7694013303769403
+20210127,sentiment_words,count_positive_words_in_paragraph,Decline,7,1.5521064301552108
+20210127,sentiment_words,count_positive_words_in_paragraph,Stress,1,0.22172949002217296
+20210127,sentiment_words,net_sentiment_per_topic,Strong,16,3.5476718403547673
+20210127,sentiment_words,net_sentiment_per_topic,Weak,-25,-5.543237250554324
+20210127,sentiment_words,net_sentiment_per_topic,Moderate,-5,-1.1086474501108647
+20210127,sentiment_words,net_sentiment_per_topic,Uncertainty,-8,-1.7738359201773837
+20210127,sentiment_words,net_sentiment_per_topic,Recession,0,0.0
+20210127,sentiment_words,net_sentiment_per_topic,Recovery,8,1.7738359201773837
+20210127,sentiment_words,net_sentiment_per_topic,Expand,4,0.8869179600886918
+20210127,sentiment_words,net_sentiment_per_topic,Decline,-21,-4.656319290465632
+20210127,sentiment_words,net_sentiment_per_topic,Stress,-4,-0.8869179600886918
 20200129,broad_topics,count_words,Economy,54,12.0
 20200129,broad_topics,count_words,Labor,65,14.444444444444443
 20200129,broad_topics,count_words,Consumer,23,5.111111111111112
@@ -3115,7 +3316,7 @@ date,category,additional,subject,frequency,frequency_share
 20200315,financial_conditions,count_words,Financial markets,18,5.389221556886228
 20200315,financial_conditions,count_words,Credit markets,16,4.790419161676647
 20200315,financial_conditions,count_words,Stocks,6,1.7964071856287425
-20200315,financial_conditions,count_words,Yield curve,0,0.0
+20200315,financial_conditions,count_words,Yield curve,1,0.29940119760479045
 20200315,financial_conditions,count_words,Financing conditions,1,0.29940119760479045
 20200315,financial_conditions,count_words,US Dollar,3,0.8982035928143712
 20200315,financial_conditions,count_words,Volatility,13,3.8922155688622757
@@ -3123,7 +3324,7 @@ date,category,additional,subject,frequency,frequency_share
 20200315,financial_conditions,count_negative_words_in_paragraph,Financial markets,11,3.293413173652695
 20200315,financial_conditions,count_negative_words_in_paragraph,Credit markets,14,4.191616766467066
 20200315,financial_conditions,count_negative_words_in_paragraph,Stocks,6,1.7964071856287425
-20200315,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20200315,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.29940119760479045
 20200315,financial_conditions,count_negative_words_in_paragraph,Financing conditions,1,0.29940119760479045
 20200315,financial_conditions,count_negative_words_in_paragraph,US Dollar,3,0.8982035928143712
 20200315,financial_conditions,count_negative_words_in_paragraph,Volatility,13,3.8922155688622757
@@ -3139,7 +3340,7 @@ date,category,additional,subject,frequency,frequency_share
 20200315,financial_conditions,net_sentiment_per_topic,Financial markets,-6,-1.7964071856287425
 20200315,financial_conditions,net_sentiment_per_topic,Credit markets,-13,-3.8922155688622757
 20200315,financial_conditions,net_sentiment_per_topic,Stocks,-4,-1.1976047904191618
-20200315,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20200315,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.29940119760479045
 20200315,financial_conditions,net_sentiment_per_topic,Financing conditions,-1,-0.29940119760479045
 20200315,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.29940119760479045
 20200315,financial_conditions,net_sentiment_per_topic,Volatility,-9,-2.694610778443114
@@ -3283,7 +3484,7 @@ date,category,additional,subject,frequency,frequency_share
 20200429,financial_conditions,count_words,Financial markets,16,5.015673981191222
 20200429,financial_conditions,count_words,Credit markets,8,2.507836990595611
 20200429,financial_conditions,count_words,Stocks,6,1.8808777429467085
-20200429,financial_conditions,count_words,Yield curve,0,0.0
+20200429,financial_conditions,count_words,Yield curve,3,0.9404388714733543
 20200429,financial_conditions,count_words,Financing conditions,1,0.3134796238244514
 20200429,financial_conditions,count_words,US Dollar,4,1.2539184952978055
 20200429,financial_conditions,count_words,Volatility,13,4.075235109717868
@@ -3291,7 +3492,7 @@ date,category,additional,subject,frequency,frequency_share
 20200429,financial_conditions,count_negative_words_in_paragraph,Financial markets,9,2.8213166144200628
 20200429,financial_conditions,count_negative_words_in_paragraph,Credit markets,6,1.8808777429467085
 20200429,financial_conditions,count_negative_words_in_paragraph,Stocks,3,0.9404388714733543
-20200429,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20200429,financial_conditions,count_negative_words_in_paragraph,Yield curve,2,0.6269592476489028
 20200429,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20200429,financial_conditions,count_negative_words_in_paragraph,US Dollar,2,0.6269592476489028
 20200429,financial_conditions,count_negative_words_in_paragraph,Volatility,13,4.075235109717868
@@ -3307,7 +3508,7 @@ date,category,additional,subject,frequency,frequency_share
 20200429,financial_conditions,net_sentiment_per_topic,Financial markets,-4,-1.2539184952978055
 20200429,financial_conditions,net_sentiment_per_topic,Credit markets,-5,-1.5673981191222568
 20200429,financial_conditions,net_sentiment_per_topic,Stocks,-2,-0.6269592476489028
-20200429,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20200429,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.6269592476489028
 20200429,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20200429,financial_conditions,net_sentiment_per_topic,US Dollar,-2,-0.6269592476489028
 20200429,financial_conditions,net_sentiment_per_topic,Volatility,-10,-3.1347962382445136
@@ -3451,7 +3652,7 @@ date,category,additional,subject,frequency,frequency_share
 20200610,financial_conditions,count_words,Financial markets,15,4.672897196261682
 20200610,financial_conditions,count_words,Credit markets,6,1.8691588785046727
 20200610,financial_conditions,count_words,Stocks,4,1.2461059190031152
-20200610,financial_conditions,count_words,Yield curve,9,2.803738317757009
+20200610,financial_conditions,count_words,Yield curve,13,4.049844236760125
 20200610,financial_conditions,count_words,Financing conditions,0,0.0
 20200610,financial_conditions,count_words,US Dollar,2,0.6230529595015576
 20200610,financial_conditions,count_words,Volatility,2,0.6230529595015576
@@ -3459,7 +3660,7 @@ date,category,additional,subject,frequency,frequency_share
 20200610,financial_conditions,count_negative_words_in_paragraph,Financial markets,3,0.9345794392523363
 20200610,financial_conditions,count_negative_words_in_paragraph,Credit markets,3,0.9345794392523363
 20200610,financial_conditions,count_negative_words_in_paragraph,Stocks,1,0.3115264797507788
-20200610,financial_conditions,count_negative_words_in_paragraph,Yield curve,4,1.2461059190031152
+20200610,financial_conditions,count_negative_words_in_paragraph,Yield curve,6,1.8691588785046727
 20200610,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20200610,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20200610,financial_conditions,count_negative_words_in_paragraph,Volatility,2,0.6230529595015576
@@ -3475,7 +3676,7 @@ date,category,additional,subject,frequency,frequency_share
 20200610,financial_conditions,net_sentiment_per_topic,Financial markets,5,1.557632398753894
 20200610,financial_conditions,net_sentiment_per_topic,Credit markets,1,0.3115264797507788
 20200610,financial_conditions,net_sentiment_per_topic,Stocks,1,0.3115264797507788
-20200610,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.6230529595015576
+20200610,financial_conditions,net_sentiment_per_topic,Yield curve,-4,-1.2461059190031152
 20200610,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20200610,financial_conditions,net_sentiment_per_topic,US Dollar,2,0.6230529595015576
 20200610,financial_conditions,net_sentiment_per_topic,Volatility,-1,-0.3115264797507788
@@ -3787,7 +3988,7 @@ date,category,additional,subject,frequency,frequency_share
 20200916,financial_conditions,count_words,Financial markets,5,1.3623978201634876
 20200916,financial_conditions,count_words,Credit markets,4,1.08991825613079
 20200916,financial_conditions,count_words,Stocks,6,1.6348773841961852
-20200916,financial_conditions,count_words,Yield curve,3,0.8174386920980926
+20200916,financial_conditions,count_words,Yield curve,4,1.08991825613079
 20200916,financial_conditions,count_words,Financing conditions,0,0.0
 20200916,financial_conditions,count_words,US Dollar,8,2.17983651226158
 20200916,financial_conditions,count_words,Volatility,2,0.544959128065395
@@ -3803,7 +4004,7 @@ date,category,additional,subject,frequency,frequency_share
 20200916,financial_conditions,count_positive_words_in_paragraph,Financial markets,2,0.544959128065395
 20200916,financial_conditions,count_positive_words_in_paragraph,Credit markets,3,0.8174386920980926
 20200916,financial_conditions,count_positive_words_in_paragraph,Stocks,4,1.08991825613079
-20200916,financial_conditions,count_positive_words_in_paragraph,Yield curve,2,0.544959128065395
+20200916,financial_conditions,count_positive_words_in_paragraph,Yield curve,3,0.8174386920980926
 20200916,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20200916,financial_conditions,count_positive_words_in_paragraph,US Dollar,6,1.6348773841961852
 20200916,financial_conditions,count_positive_words_in_paragraph,Volatility,0,0.0
@@ -3811,7 +4012,7 @@ date,category,additional,subject,frequency,frequency_share
 20200916,financial_conditions,net_sentiment_per_topic,Financial markets,1,0.2724795640326975
 20200916,financial_conditions,net_sentiment_per_topic,Credit markets,3,0.8174386920980926
 20200916,financial_conditions,net_sentiment_per_topic,Stocks,2,0.544959128065395
-20200916,financial_conditions,net_sentiment_per_topic,Yield curve,1,0.2724795640326975
+20200916,financial_conditions,net_sentiment_per_topic,Yield curve,2,0.544959128065395
 20200916,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20200916,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.2724795640326975
 20200916,financial_conditions,net_sentiment_per_topic,Volatility,-2,-0.544959128065395
@@ -3955,7 +4156,7 @@ date,category,additional,subject,frequency,frequency_share
 20201105,financial_conditions,count_words,Financial markets,8,2.5
 20201105,financial_conditions,count_words,Credit markets,3,0.9375
 20201105,financial_conditions,count_words,Stocks,8,2.5
-20201105,financial_conditions,count_words,Yield curve,2,0.625
+20201105,financial_conditions,count_words,Yield curve,3,0.9375
 20201105,financial_conditions,count_words,Financing conditions,1,0.3125
 20201105,financial_conditions,count_words,US Dollar,2,0.625
 20201105,financial_conditions,count_words,Volatility,5,1.5625
@@ -4123,7 +4324,7 @@ date,category,additional,subject,frequency,frequency_share
 20201216,financial_conditions,count_words,Financial markets,5,1.7921146953405016
 20201216,financial_conditions,count_words,Credit markets,5,1.7921146953405016
 20201216,financial_conditions,count_words,Stocks,8,2.867383512544803
-20201216,financial_conditions,count_words,Yield curve,1,0.35842293906810035
+20201216,financial_conditions,count_words,Yield curve,3,1.0752688172043012
 20201216,financial_conditions,count_words,Financing conditions,2,0.7168458781362007
 20201216,financial_conditions,count_words,US Dollar,1,0.35842293906810035
 20201216,financial_conditions,count_words,Volatility,3,1.0752688172043012
@@ -4139,7 +4340,7 @@ date,category,additional,subject,frequency,frequency_share
 20201216,financial_conditions,count_positive_words_in_paragraph,Financial markets,2,0.7168458781362007
 20201216,financial_conditions,count_positive_words_in_paragraph,Credit markets,2,0.7168458781362007
 20201216,financial_conditions,count_positive_words_in_paragraph,Stocks,4,1.4336917562724014
-20201216,financial_conditions,count_positive_words_in_paragraph,Yield curve,0,0.0
+20201216,financial_conditions,count_positive_words_in_paragraph,Yield curve,1,0.35842293906810035
 20201216,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20201216,financial_conditions,count_positive_words_in_paragraph,US Dollar,0,0.0
 20201216,financial_conditions,count_positive_words_in_paragraph,Volatility,0,0.0
@@ -4147,7 +4348,7 @@ date,category,additional,subject,frequency,frequency_share
 20201216,financial_conditions,net_sentiment_per_topic,Financial markets,2,0.7168458781362007
 20201216,financial_conditions,net_sentiment_per_topic,Credit markets,2,0.7168458781362007
 20201216,financial_conditions,net_sentiment_per_topic,Stocks,3,1.0752688172043012
-20201216,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20201216,financial_conditions,net_sentiment_per_topic,Yield curve,1,0.35842293906810035
 20201216,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20201216,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20201216,financial_conditions,net_sentiment_per_topic,Volatility,-2,-0.7168458781362007
@@ -5299,7 +5500,7 @@ date,category,additional,subject,frequency,frequency_share
 20191030,financial_conditions,count_words,Financial markets,5,1.2345679012345678
 20191030,financial_conditions,count_words,Credit markets,3,0.7407407407407408
 20191030,financial_conditions,count_words,Stocks,4,0.9876543209876543
-20191030,financial_conditions,count_words,Yield curve,6,1.4814814814814816
+20191030,financial_conditions,count_words,Yield curve,8,1.9753086419753085
 20191030,financial_conditions,count_words,Financing conditions,0,0.0
 20191030,financial_conditions,count_words,US Dollar,3,0.7407407407407408
 20191030,financial_conditions,count_words,Volatility,7,1.728395061728395
@@ -5307,7 +5508,7 @@ date,category,additional,subject,frequency,frequency_share
 20191030,financial_conditions,count_negative_words_in_paragraph,Financial markets,0,0.0
 20191030,financial_conditions,count_negative_words_in_paragraph,Credit markets,0,0.0
 20191030,financial_conditions,count_negative_words_in_paragraph,Stocks,0,0.0
-20191030,financial_conditions,count_negative_words_in_paragraph,Yield curve,4,0.9876543209876543
+20191030,financial_conditions,count_negative_words_in_paragraph,Yield curve,5,1.2345679012345678
 20191030,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20191030,financial_conditions,count_negative_words_in_paragraph,US Dollar,3,0.7407407407407408
 20191030,financial_conditions,count_negative_words_in_paragraph,Volatility,7,1.728395061728395
@@ -5323,7 +5524,7 @@ date,category,additional,subject,frequency,frequency_share
 20191030,financial_conditions,net_sentiment_per_topic,Financial markets,0,0.0
 20191030,financial_conditions,net_sentiment_per_topic,Credit markets,0,0.0
 20191030,financial_conditions,net_sentiment_per_topic,Stocks,1,0.24691358024691357
-20191030,financial_conditions,net_sentiment_per_topic,Yield curve,-3,-0.7407407407407408
+20191030,financial_conditions,net_sentiment_per_topic,Yield curve,-4,-0.9876543209876543
 20191030,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20191030,financial_conditions,net_sentiment_per_topic,US Dollar,-3,-0.7407407407407408
 20191030,financial_conditions,net_sentiment_per_topic,Volatility,-5,-1.2345679012345678
@@ -5803,7 +6004,7 @@ date,category,additional,subject,frequency,frequency_share
 20180321,financial_conditions,count_words,Financial markets,4,1.6064257028112447
 20180321,financial_conditions,count_words,Credit markets,2,0.8032128514056224
 20180321,financial_conditions,count_words,Stocks,12,4.819277108433735
-20180321,financial_conditions,count_words,Yield curve,2,0.8032128514056224
+20180321,financial_conditions,count_words,Yield curve,5,2.0080321285140563
 20180321,financial_conditions,count_words,Financing conditions,0,0.0
 20180321,financial_conditions,count_words,US Dollar,4,1.6064257028112447
 20180321,financial_conditions,count_words,Volatility,12,4.819277108433735
@@ -5811,7 +6012,7 @@ date,category,additional,subject,frequency,frequency_share
 20180321,financial_conditions,count_negative_words_in_paragraph,Financial markets,2,0.8032128514056224
 20180321,financial_conditions,count_negative_words_in_paragraph,Credit markets,0,0.0
 20180321,financial_conditions,count_negative_words_in_paragraph,Stocks,11,4.417670682730924
-20180321,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20180321,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.4016064257028112
 20180321,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20180321,financial_conditions,count_negative_words_in_paragraph,US Dollar,3,1.2048192771084338
 20180321,financial_conditions,count_negative_words_in_paragraph,Volatility,12,4.819277108433735
@@ -5819,7 +6020,7 @@ date,category,additional,subject,frequency,frequency_share
 20180321,financial_conditions,count_positive_words_in_paragraph,Financial markets,1,0.4016064257028112
 20180321,financial_conditions,count_positive_words_in_paragraph,Credit markets,1,0.4016064257028112
 20180321,financial_conditions,count_positive_words_in_paragraph,Stocks,0,0.0
-20180321,financial_conditions,count_positive_words_in_paragraph,Yield curve,0,0.0
+20180321,financial_conditions,count_positive_words_in_paragraph,Yield curve,1,0.4016064257028112
 20180321,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20180321,financial_conditions,count_positive_words_in_paragraph,US Dollar,1,0.4016064257028112
 20180321,financial_conditions,count_positive_words_in_paragraph,Volatility,3,1.2048192771084338
@@ -6307,7 +6508,7 @@ date,category,additional,subject,frequency,frequency_share
 20180801,financial_conditions,count_words,Financial markets,3,1.0169491525423728
 20180801,financial_conditions,count_words,Credit markets,4,1.3559322033898304
 20180801,financial_conditions,count_words,Stocks,8,2.711864406779661
-20180801,financial_conditions,count_words,Yield curve,9,3.050847457627119
+20180801,financial_conditions,count_words,Yield curve,11,3.728813559322034
 20180801,financial_conditions,count_words,Financing conditions,1,0.3389830508474576
 20180801,financial_conditions,count_words,US Dollar,3,1.0169491525423728
 20180801,financial_conditions,count_words,Volatility,1,0.3389830508474576
@@ -6315,7 +6516,7 @@ date,category,additional,subject,frequency,frequency_share
 20180801,financial_conditions,count_negative_words_in_paragraph,Financial markets,0,0.0
 20180801,financial_conditions,count_negative_words_in_paragraph,Credit markets,0,0.0
 20180801,financial_conditions,count_negative_words_in_paragraph,Stocks,5,1.694915254237288
-20180801,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.3389830508474576
+20180801,financial_conditions,count_negative_words_in_paragraph,Yield curve,2,0.6779661016949152
 20180801,financial_conditions,count_negative_words_in_paragraph,Financing conditions,1,0.3389830508474576
 20180801,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20180801,financial_conditions,count_negative_words_in_paragraph,Volatility,1,0.3389830508474576
@@ -6331,7 +6532,7 @@ date,category,additional,subject,frequency,frequency_share
 20180801,financial_conditions,net_sentiment_per_topic,Financial markets,0,0.0
 20180801,financial_conditions,net_sentiment_per_topic,Credit markets,2,0.6779661016949152
 20180801,financial_conditions,net_sentiment_per_topic,Stocks,-4,-1.3559322033898304
-20180801,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.3389830508474576
+20180801,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.6779661016949152
 20180801,financial_conditions,net_sentiment_per_topic,Financing conditions,-1,-0.3389830508474576
 20180801,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20180801,financial_conditions,net_sentiment_per_topic,Volatility,-1,-0.3389830508474576
@@ -7147,7 +7348,7 @@ date,category,additional,subject,frequency,frequency_share
 20170315,financial_conditions,count_words,Financial markets,7,2.3178807947019866
 20170315,financial_conditions,count_words,Credit markets,3,0.9933774834437087
 20170315,financial_conditions,count_words,Stocks,12,3.9735099337748347
-20170315,financial_conditions,count_words,Yield curve,0,0.0
+20170315,financial_conditions,count_words,Yield curve,1,0.33112582781456956
 20170315,financial_conditions,count_words,Financing conditions,0,0.0
 20170315,financial_conditions,count_words,US Dollar,7,2.3178807947019866
 20170315,financial_conditions,count_words,Volatility,3,0.9933774834437087
@@ -7483,7 +7684,7 @@ date,category,additional,subject,frequency,frequency_share
 20170614,financial_conditions,count_words,Financial markets,7,2.3728813559322033
 20170614,financial_conditions,count_words,Credit markets,1,0.3389830508474576
 20170614,financial_conditions,count_words,Stocks,8,2.711864406779661
-20170614,financial_conditions,count_words,Yield curve,2,0.6779661016949152
+20170614,financial_conditions,count_words,Yield curve,3,1.0169491525423728
 20170614,financial_conditions,count_words,Financing conditions,0,0.0
 20170614,financial_conditions,count_words,US Dollar,1,0.3389830508474576
 20170614,financial_conditions,count_words,Volatility,4,1.3559322033898304
@@ -8155,7 +8356,7 @@ date,category,additional,subject,frequency,frequency_share
 20171213,financial_conditions,count_words,Financial markets,6,2.4193548387096775
 20171213,financial_conditions,count_words,Credit markets,3,1.2096774193548387
 20171213,financial_conditions,count_words,Stocks,7,2.82258064516129
-20171213,financial_conditions,count_words,Yield curve,12,4.838709677419355
+20171213,financial_conditions,count_words,Yield curve,13,5.241935483870968
 20171213,financial_conditions,count_words,Financing conditions,0,0.0
 20171213,financial_conditions,count_words,US Dollar,2,0.8064516129032258
 20171213,financial_conditions,count_words,Volatility,3,1.2096774193548387
@@ -8163,7 +8364,7 @@ date,category,additional,subject,frequency,frequency_share
 20171213,financial_conditions,count_negative_words_in_paragraph,Financial markets,3,1.2096774193548387
 20171213,financial_conditions,count_negative_words_in_paragraph,Credit markets,1,0.4032258064516129
 20171213,financial_conditions,count_negative_words_in_paragraph,Stocks,3,1.2096774193548387
-20171213,financial_conditions,count_negative_words_in_paragraph,Yield curve,3,1.2096774193548387
+20171213,financial_conditions,count_negative_words_in_paragraph,Yield curve,4,1.6129032258064515
 20171213,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20171213,financial_conditions,count_negative_words_in_paragraph,US Dollar,1,0.4032258064516129
 20171213,financial_conditions,count_negative_words_in_paragraph,Volatility,3,1.2096774193548387
@@ -8179,7 +8380,7 @@ date,category,additional,subject,frequency,frequency_share
 20171213,financial_conditions,net_sentiment_per_topic,Financial markets,-1,-0.4032258064516129
 20171213,financial_conditions,net_sentiment_per_topic,Credit markets,0,0.0
 20171213,financial_conditions,net_sentiment_per_topic,Stocks,0,0.0
-20171213,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.4032258064516129
+20171213,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.8064516129032258
 20171213,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20171213,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.4032258064516129
 20171213,financial_conditions,net_sentiment_per_topic,Volatility,-2,-0.8064516129032258
@@ -8491,7 +8692,7 @@ date,category,additional,subject,frequency,frequency_share
 20160316,financial_conditions,count_words,Financial markets,7,2.6415094339622645
 20160316,financial_conditions,count_words,Credit markets,15,5.660377358490567
 20160316,financial_conditions,count_words,Stocks,8,3.018867924528302
-20160316,financial_conditions,count_words,Yield curve,1,0.37735849056603776
+20160316,financial_conditions,count_words,Yield curve,2,0.7547169811320755
 20160316,financial_conditions,count_words,Financing conditions,0,0.0
 20160316,financial_conditions,count_words,US Dollar,3,1.1320754716981132
 20160316,financial_conditions,count_words,Volatility,9,3.3962264150943398
@@ -8507,7 +8708,7 @@ date,category,additional,subject,frequency,frequency_share
 20160316,financial_conditions,count_positive_words_in_paragraph,Financial markets,3,1.1320754716981132
 20160316,financial_conditions,count_positive_words_in_paragraph,Credit markets,3,1.1320754716981132
 20160316,financial_conditions,count_positive_words_in_paragraph,Stocks,1,0.37735849056603776
-20160316,financial_conditions,count_positive_words_in_paragraph,Yield curve,1,0.37735849056603776
+20160316,financial_conditions,count_positive_words_in_paragraph,Yield curve,2,0.7547169811320755
 20160316,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20160316,financial_conditions,count_positive_words_in_paragraph,US Dollar,0,0.0
 20160316,financial_conditions,count_positive_words_in_paragraph,Volatility,4,1.509433962264151
@@ -8515,7 +8716,7 @@ date,category,additional,subject,frequency,frequency_share
 20160316,financial_conditions,net_sentiment_per_topic,Financial markets,-2,-0.7547169811320755
 20160316,financial_conditions,net_sentiment_per_topic,Credit markets,-5,-1.8867924528301887
 20160316,financial_conditions,net_sentiment_per_topic,Stocks,-4,-1.509433962264151
-20160316,financial_conditions,net_sentiment_per_topic,Yield curve,1,0.37735849056603776
+20160316,financial_conditions,net_sentiment_per_topic,Yield curve,2,0.7547169811320755
 20160316,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20160316,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.37735849056603776
 20160316,financial_conditions,net_sentiment_per_topic,Volatility,-5,-1.8867924528301887
@@ -8995,7 +9196,7 @@ date,category,additional,subject,frequency,frequency_share
 20160727,financial_conditions,count_words,Financial markets,13,3.8461538461538463
 20160727,financial_conditions,count_words,Credit markets,9,2.6627218934911245
 20160727,financial_conditions,count_words,Stocks,13,3.8461538461538463
-20160727,financial_conditions,count_words,Yield curve,2,0.591715976331361
+20160727,financial_conditions,count_words,Yield curve,4,1.183431952662722
 20160727,financial_conditions,count_words,Financing conditions,1,0.2958579881656805
 20160727,financial_conditions,count_words,US Dollar,4,1.183431952662722
 20160727,financial_conditions,count_words,Volatility,5,1.4792899408284024
@@ -9003,7 +9204,7 @@ date,category,additional,subject,frequency,frequency_share
 20160727,financial_conditions,count_negative_words_in_paragraph,Financial markets,4,1.183431952662722
 20160727,financial_conditions,count_negative_words_in_paragraph,Credit markets,5,1.4792899408284024
 20160727,financial_conditions,count_negative_words_in_paragraph,Stocks,5,1.4792899408284024
-20160727,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20160727,financial_conditions,count_negative_words_in_paragraph,Yield curve,2,0.591715976331361
 20160727,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20160727,financial_conditions,count_negative_words_in_paragraph,US Dollar,2,0.591715976331361
 20160727,financial_conditions,count_negative_words_in_paragraph,Volatility,5,1.4792899408284024
@@ -9019,7 +9220,7 @@ date,category,additional,subject,frequency,frequency_share
 20160727,financial_conditions,net_sentiment_per_topic,Financial markets,-1,-0.2958579881656805
 20160727,financial_conditions,net_sentiment_per_topic,Credit markets,-4,-1.183431952662722
 20160727,financial_conditions,net_sentiment_per_topic,Stocks,-1,-0.2958579881656805
-20160727,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20160727,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.591715976331361
 20160727,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20160727,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.2958579881656805
 20160727,financial_conditions,net_sentiment_per_topic,Volatility,-5,-1.4792899408284024
@@ -9163,7 +9364,7 @@ date,category,additional,subject,frequency,frequency_share
 20160921,financial_conditions,count_words,Financial markets,5,1.4749262536873156
 20160921,financial_conditions,count_words,Credit markets,1,0.2949852507374631
 20160921,financial_conditions,count_words,Stocks,3,0.8849557522123894
-20160921,financial_conditions,count_words,Yield curve,1,0.2949852507374631
+20160921,financial_conditions,count_words,Yield curve,2,0.5899705014749262
 20160921,financial_conditions,count_words,Financing conditions,1,0.2949852507374631
 20160921,financial_conditions,count_words,US Dollar,0,0.0
 20160921,financial_conditions,count_words,Volatility,6,1.7699115044247788
@@ -9171,7 +9372,7 @@ date,category,additional,subject,frequency,frequency_share
 20160921,financial_conditions,count_negative_words_in_paragraph,Financial markets,3,0.8849557522123894
 20160921,financial_conditions,count_negative_words_in_paragraph,Credit markets,1,0.2949852507374631
 20160921,financial_conditions,count_negative_words_in_paragraph,Stocks,0,0.0
-20160921,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20160921,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.2949852507374631
 20160921,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20160921,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20160921,financial_conditions,count_negative_words_in_paragraph,Volatility,6,1.7699115044247788
@@ -9187,7 +9388,7 @@ date,category,additional,subject,frequency,frequency_share
 20160921,financial_conditions,net_sentiment_per_topic,Financial markets,-3,-0.8849557522123894
 20160921,financial_conditions,net_sentiment_per_topic,Credit markets,-1,-0.2949852507374631
 20160921,financial_conditions,net_sentiment_per_topic,Stocks,0,0.0
-20160921,financial_conditions,net_sentiment_per_topic,Yield curve,1,0.2949852507374631
+20160921,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
 20160921,financial_conditions,net_sentiment_per_topic,Financing conditions,1,0.2949852507374631
 20160921,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20160921,financial_conditions,net_sentiment_per_topic,Volatility,-5,-1.4749262536873156
@@ -9331,7 +9532,7 @@ date,category,additional,subject,frequency,frequency_share
 20161102,financial_conditions,count_words,Financial markets,7,2.302631578947368
 20161102,financial_conditions,count_words,Credit markets,3,0.9868421052631579
 20161102,financial_conditions,count_words,Stocks,4,1.3157894736842104
-20161102,financial_conditions,count_words,Yield curve,1,0.3289473684210526
+20161102,financial_conditions,count_words,Yield curve,3,0.9868421052631579
 20161102,financial_conditions,count_words,Financing conditions,1,0.3289473684210526
 20161102,financial_conditions,count_words,US Dollar,0,0.0
 20161102,financial_conditions,count_words,Volatility,4,1.3157894736842104
@@ -9339,7 +9540,7 @@ date,category,additional,subject,frequency,frequency_share
 20161102,financial_conditions,count_negative_words_in_paragraph,Financial markets,0,0.0
 20161102,financial_conditions,count_negative_words_in_paragraph,Credit markets,3,0.9868421052631579
 20161102,financial_conditions,count_negative_words_in_paragraph,Stocks,1,0.3289473684210526
-20161102,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20161102,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.3289473684210526
 20161102,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20161102,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20161102,financial_conditions,count_negative_words_in_paragraph,Volatility,4,1.3157894736842104
@@ -9355,7 +9556,7 @@ date,category,additional,subject,frequency,frequency_share
 20161102,financial_conditions,net_sentiment_per_topic,Financial markets,1,0.3289473684210526
 20161102,financial_conditions,net_sentiment_per_topic,Credit markets,-2,-0.6578947368421052
 20161102,financial_conditions,net_sentiment_per_topic,Stocks,-1,-0.3289473684210526
-20161102,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20161102,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.3289473684210526
 20161102,financial_conditions,net_sentiment_per_topic,Financing conditions,1,0.3289473684210526
 20161102,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20161102,financial_conditions,net_sentiment_per_topic,Volatility,-3,-0.9868421052631579
@@ -9499,7 +9700,7 @@ date,category,additional,subject,frequency,frequency_share
 20161214,financial_conditions,count_words,Financial markets,7,2.405498281786942
 20161214,financial_conditions,count_words,Credit markets,4,1.3745704467353952
 20161214,financial_conditions,count_words,Stocks,9,3.0927835051546393
-20161214,financial_conditions,count_words,Yield curve,4,1.3745704467353952
+20161214,financial_conditions,count_words,Yield curve,8,2.7491408934707904
 20161214,financial_conditions,count_words,Financing conditions,0,0.0
 20161214,financial_conditions,count_words,US Dollar,2,0.6872852233676976
 20161214,financial_conditions,count_words,Volatility,1,0.3436426116838488
@@ -9835,7 +10036,7 @@ date,category,additional,subject,frequency,frequency_share
 20150318,financial_conditions,count_words,Financial markets,3,1.1583011583011582
 20150318,financial_conditions,count_words,Credit markets,4,1.5444015444015444
 20150318,financial_conditions,count_words,Stocks,4,1.5444015444015444
-20150318,financial_conditions,count_words,Yield curve,2,0.7722007722007722
+20150318,financial_conditions,count_words,Yield curve,3,1.1583011583011582
 20150318,financial_conditions,count_words,Financing conditions,2,0.7722007722007722
 20150318,financial_conditions,count_words,US Dollar,2,0.7722007722007722
 20150318,financial_conditions,count_words,Volatility,3,1.1583011583011582
@@ -10171,7 +10372,7 @@ date,category,additional,subject,frequency,frequency_share
 20150617,financial_conditions,count_words,Financial markets,7,2.6415094339622645
 20150617,financial_conditions,count_words,Credit markets,3,1.1320754716981132
 20150617,financial_conditions,count_words,Stocks,2,0.7547169811320755
-20150617,financial_conditions,count_words,Yield curve,3,1.1320754716981132
+20150617,financial_conditions,count_words,Yield curve,6,2.2641509433962264
 20150617,financial_conditions,count_words,Financing conditions,0,0.0
 20150617,financial_conditions,count_words,US Dollar,5,1.8867924528301887
 20150617,financial_conditions,count_words,Volatility,5,1.8867924528301887
@@ -10507,7 +10708,7 @@ date,category,additional,subject,frequency,frequency_share
 20150917,financial_conditions,count_words,Financial markets,7,2.788844621513944
 20150917,financial_conditions,count_words,Credit markets,4,1.593625498007968
 20150917,financial_conditions,count_words,Stocks,9,3.5856573705179287
-20150917,financial_conditions,count_words,Yield curve,0,0.0
+20150917,financial_conditions,count_words,Yield curve,3,1.1952191235059761
 20150917,financial_conditions,count_words,Financing conditions,0,0.0
 20150917,financial_conditions,count_words,US Dollar,4,1.593625498007968
 20150917,financial_conditions,count_words,Volatility,7,2.788844621513944
@@ -10515,7 +10716,7 @@ date,category,additional,subject,frequency,frequency_share
 20150917,financial_conditions,count_negative_words_in_paragraph,Financial markets,6,2.3904382470119523
 20150917,financial_conditions,count_negative_words_in_paragraph,Credit markets,1,0.398406374501992
 20150917,financial_conditions,count_negative_words_in_paragraph,Stocks,9,3.5856573705179287
-20150917,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20150917,financial_conditions,count_negative_words_in_paragraph,Yield curve,2,0.796812749003984
 20150917,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20150917,financial_conditions,count_negative_words_in_paragraph,US Dollar,4,1.593625498007968
 20150917,financial_conditions,count_negative_words_in_paragraph,Volatility,7,2.788844621513944
@@ -10523,7 +10724,7 @@ date,category,additional,subject,frequency,frequency_share
 20150917,financial_conditions,count_positive_words_in_paragraph,Financial markets,3,1.1952191235059761
 20150917,financial_conditions,count_positive_words_in_paragraph,Credit markets,2,0.796812749003984
 20150917,financial_conditions,count_positive_words_in_paragraph,Stocks,1,0.398406374501992
-20150917,financial_conditions,count_positive_words_in_paragraph,Yield curve,0,0.0
+20150917,financial_conditions,count_positive_words_in_paragraph,Yield curve,1,0.398406374501992
 20150917,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20150917,financial_conditions,count_positive_words_in_paragraph,US Dollar,3,1.1952191235059761
 20150917,financial_conditions,count_positive_words_in_paragraph,Volatility,1,0.398406374501992
@@ -10531,7 +10732,7 @@ date,category,additional,subject,frequency,frequency_share
 20150917,financial_conditions,net_sentiment_per_topic,Financial markets,-3,-1.1952191235059761
 20150917,financial_conditions,net_sentiment_per_topic,Credit markets,1,0.398406374501992
 20150917,financial_conditions,net_sentiment_per_topic,Stocks,-8,-3.187250996015936
-20150917,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20150917,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.398406374501992
 20150917,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20150917,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.398406374501992
 20150917,financial_conditions,net_sentiment_per_topic,Volatility,-6,-2.3904382470119523
@@ -10843,7 +11044,7 @@ date,category,additional,subject,frequency,frequency_share
 20151216,financial_conditions,count_words,Financial markets,5,1.9230769230769231
 20151216,financial_conditions,count_words,Credit markets,5,1.9230769230769231
 20151216,financial_conditions,count_words,Stocks,3,1.153846153846154
-20151216,financial_conditions,count_words,Yield curve,0,0.0
+20151216,financial_conditions,count_words,Yield curve,2,0.7692307692307693
 20151216,financial_conditions,count_words,Financing conditions,0,0.0
 20151216,financial_conditions,count_words,US Dollar,2,0.7692307692307693
 20151216,financial_conditions,count_words,Volatility,2,0.7692307692307693
@@ -10851,7 +11052,7 @@ date,category,additional,subject,frequency,frequency_share
 20151216,financial_conditions,count_negative_words_in_paragraph,Financial markets,2,0.7692307692307693
 20151216,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.7692307692307693
 20151216,financial_conditions,count_negative_words_in_paragraph,Stocks,3,1.153846153846154
-20151216,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20151216,financial_conditions,count_negative_words_in_paragraph,Yield curve,2,0.7692307692307693
 20151216,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20151216,financial_conditions,count_negative_words_in_paragraph,US Dollar,2,0.7692307692307693
 20151216,financial_conditions,count_negative_words_in_paragraph,Volatility,2,0.7692307692307693
@@ -10867,7 +11068,7 @@ date,category,additional,subject,frequency,frequency_share
 20151216,financial_conditions,net_sentiment_per_topic,Financial markets,-1,-0.38461538461538464
 20151216,financial_conditions,net_sentiment_per_topic,Credit markets,-2,-0.7692307692307693
 20151216,financial_conditions,net_sentiment_per_topic,Stocks,-3,-1.153846153846154
-20151216,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20151216,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.7692307692307693
 20151216,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20151216,financial_conditions,net_sentiment_per_topic,US Dollar,-1,-0.38461538461538464
 20151216,financial_conditions,net_sentiment_per_topic,Volatility,-2,-0.7692307692307693
@@ -12019,7 +12220,7 @@ date,category,additional,subject,frequency,frequency_share
 20141029,financial_conditions,count_words,Financial markets,8,2.9850746268656714
 20141029,financial_conditions,count_words,Credit markets,3,1.1194029850746268
 20141029,financial_conditions,count_words,Stocks,6,2.2388059701492535
-20141029,financial_conditions,count_words,Yield curve,0,0.0
+20141029,financial_conditions,count_words,Yield curve,1,0.3731343283582089
 20141029,financial_conditions,count_words,Financing conditions,1,0.3731343283582089
 20141029,financial_conditions,count_words,US Dollar,2,0.7462686567164178
 20141029,financial_conditions,count_words,Volatility,11,4.104477611940299
@@ -13027,7 +13228,7 @@ date,category,additional,subject,frequency,frequency_share
 20130731,financial_conditions,count_words,Financial markets,5,2.2123893805309733
 20130731,financial_conditions,count_words,Credit markets,1,0.4424778761061947
 20130731,financial_conditions,count_words,Stocks,11,4.867256637168142
-20130731,financial_conditions,count_words,Yield curve,1,0.4424778761061947
+20130731,financial_conditions,count_words,Yield curve,2,0.8849557522123894
 20130731,financial_conditions,count_words,Financing conditions,1,0.4424778761061947
 20130731,financial_conditions,count_words,US Dollar,1,0.4424778761061947
 20130731,financial_conditions,count_words,Volatility,4,1.7699115044247788
@@ -13195,7 +13396,7 @@ date,category,additional,subject,frequency,frequency_share
 20130918,financial_conditions,count_words,Financial markets,9,3.765690376569038
 20130918,financial_conditions,count_words,Credit markets,0,0.0
 20130918,financial_conditions,count_words,Stocks,4,1.6736401673640167
-20130918,financial_conditions,count_words,Yield curve,1,0.41841004184100417
+20130918,financial_conditions,count_words,Yield curve,2,0.8368200836820083
 20130918,financial_conditions,count_words,Financing conditions,1,0.41841004184100417
 20130918,financial_conditions,count_words,US Dollar,1,0.41841004184100417
 20130918,financial_conditions,count_words,Volatility,5,2.092050209205021
@@ -13531,7 +13732,7 @@ date,category,additional,subject,frequency,frequency_share
 20131218,financial_conditions,count_words,Financial markets,5,1.8656716417910446
 20131218,financial_conditions,count_words,Credit markets,2,0.7462686567164178
 20131218,financial_conditions,count_words,Stocks,11,4.104477611940299
-20131218,financial_conditions,count_words,Yield curve,2,0.7462686567164178
+20131218,financial_conditions,count_words,Yield curve,3,1.1194029850746268
 20131218,financial_conditions,count_words,Financing conditions,0,0.0
 20131218,financial_conditions,count_words,US Dollar,3,1.1194029850746268
 20131218,financial_conditions,count_words,Volatility,0,0.0
@@ -13867,7 +14068,7 @@ date,category,additional,subject,frequency,frequency_share
 20120313,financial_conditions,count_words,Financial markets,10,4.739336492890995
 20120313,financial_conditions,count_words,Credit markets,3,1.4218009478672986
 20120313,financial_conditions,count_words,Stocks,8,3.7914691943127963
-20120313,financial_conditions,count_words,Yield curve,0,0.0
+20120313,financial_conditions,count_words,Yield curve,1,0.47393364928909953
 20120313,financial_conditions,count_words,Financing conditions,0,0.0
 20120313,financial_conditions,count_words,US Dollar,1,0.47393364928909953
 20120313,financial_conditions,count_words,Volatility,1,0.47393364928909953
@@ -13875,7 +14076,7 @@ date,category,additional,subject,frequency,frequency_share
 20120313,financial_conditions,count_negative_words_in_paragraph,Financial markets,5,2.3696682464454977
 20120313,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.9478672985781991
 20120313,financial_conditions,count_negative_words_in_paragraph,Stocks,2,0.9478672985781991
-20120313,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20120313,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.47393364928909953
 20120313,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20120313,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20120313,financial_conditions,count_negative_words_in_paragraph,Volatility,1,0.47393364928909953
@@ -13891,7 +14092,7 @@ date,category,additional,subject,frequency,frequency_share
 20120313,financial_conditions,net_sentiment_per_topic,Financial markets,-2,-0.9478672985781991
 20120313,financial_conditions,net_sentiment_per_topic,Credit markets,-1,-0.47393364928909953
 20120313,financial_conditions,net_sentiment_per_topic,Stocks,3,1.4218009478672986
-20120313,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20120313,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.47393364928909953
 20120313,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20120313,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20120313,financial_conditions,net_sentiment_per_topic,Volatility,-1,-0.47393364928909953
@@ -14539,7 +14740,7 @@ date,category,additional,subject,frequency,frequency_share
 20120913,financial_conditions,count_words,Financial markets,8,3.0303030303030303
 20120913,financial_conditions,count_words,Credit markets,4,1.5151515151515151
 20120913,financial_conditions,count_words,Stocks,10,3.787878787878788
-20120913,financial_conditions,count_words,Yield curve,2,0.7575757575757576
+20120913,financial_conditions,count_words,Yield curve,3,1.1363636363636365
 20120913,financial_conditions,count_words,Financing conditions,1,0.3787878787878788
 20120913,financial_conditions,count_words,US Dollar,1,0.3787878787878788
 20120913,financial_conditions,count_words,Volatility,1,0.3787878787878788
@@ -14707,7 +14908,7 @@ date,category,additional,subject,frequency,frequency_share
 20121024,financial_conditions,count_words,Financial markets,5,2.092050209205021
 20121024,financial_conditions,count_words,Credit markets,4,1.6736401673640167
 20121024,financial_conditions,count_words,Stocks,7,2.928870292887029
-20121024,financial_conditions,count_words,Yield curve,0,0.0
+20121024,financial_conditions,count_words,Yield curve,1,0.41841004184100417
 20121024,financial_conditions,count_words,Financing conditions,1,0.41841004184100417
 20121024,financial_conditions,count_words,US Dollar,2,0.8368200836820083
 20121024,financial_conditions,count_words,Volatility,1,0.41841004184100417
@@ -15043,7 +15244,7 @@ date,category,additional,subject,frequency,frequency_share
 20110126,financial_conditions,count_words,Financial markets,6,1.6574585635359116
 20110126,financial_conditions,count_words,Credit markets,9,2.4861878453038675
 20110126,financial_conditions,count_words,Stocks,9,2.4861878453038675
-20110126,financial_conditions,count_words,Yield curve,3,0.8287292817679558
+20110126,financial_conditions,count_words,Yield curve,6,1.6574585635359116
 20110126,financial_conditions,count_words,Financing conditions,0,0.0
 20110126,financial_conditions,count_words,US Dollar,1,0.2762430939226519
 20110126,financial_conditions,count_words,Volatility,4,1.1049723756906076
@@ -15059,7 +15260,7 @@ date,category,additional,subject,frequency,frequency_share
 20110126,financial_conditions,count_positive_words_in_paragraph,Financial markets,3,0.8287292817679558
 20110126,financial_conditions,count_positive_words_in_paragraph,Credit markets,2,0.5524861878453038
 20110126,financial_conditions,count_positive_words_in_paragraph,Stocks,3,0.8287292817679558
-20110126,financial_conditions,count_positive_words_in_paragraph,Yield curve,1,0.2762430939226519
+20110126,financial_conditions,count_positive_words_in_paragraph,Yield curve,2,0.5524861878453038
 20110126,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20110126,financial_conditions,count_positive_words_in_paragraph,US Dollar,0,0.0
 20110126,financial_conditions,count_positive_words_in_paragraph,Volatility,3,0.8287292817679558
@@ -15067,7 +15268,7 @@ date,category,additional,subject,frequency,frequency_share
 20110126,financial_conditions,net_sentiment_per_topic,Financial markets,2,0.5524861878453038
 20110126,financial_conditions,net_sentiment_per_topic,Credit markets,-4,-1.1049723756906076
 20110126,financial_conditions,net_sentiment_per_topic,Stocks,1,0.2762430939226519
-20110126,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20110126,financial_conditions,net_sentiment_per_topic,Yield curve,1,0.2762430939226519
 20110126,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20110126,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20110126,financial_conditions,net_sentiment_per_topic,Volatility,-1,-0.2762430939226519
@@ -15883,7 +16084,7 @@ date,category,additional,subject,frequency,frequency_share
 20110921,financial_conditions,count_words,Financial markets,9,3.237410071942446
 20110921,financial_conditions,count_words,Credit markets,7,2.5179856115107913
 20110921,financial_conditions,count_words,Stocks,10,3.597122302158273
-20110921,financial_conditions,count_words,Yield curve,0,0.0
+20110921,financial_conditions,count_words,Yield curve,1,0.3597122302158274
 20110921,financial_conditions,count_words,Financing conditions,1,0.3597122302158274
 20110921,financial_conditions,count_words,US Dollar,1,0.3597122302158274
 20110921,financial_conditions,count_words,Volatility,5,1.7985611510791366
@@ -16387,7 +16588,7 @@ date,category,additional,subject,frequency,frequency_share
 20100127,financial_conditions,count_words,Financial markets,8,2.1621621621621623
 20100127,financial_conditions,count_words,Credit markets,9,2.4324324324324325
 20100127,financial_conditions,count_words,Stocks,8,2.1621621621621623
-20100127,financial_conditions,count_words,Yield curve,0,0.0
+20100127,financial_conditions,count_words,Yield curve,3,0.8108108108108109
 20100127,financial_conditions,count_words,Financing conditions,0,0.0
 20100127,financial_conditions,count_words,US Dollar,1,0.2702702702702703
 20100127,financial_conditions,count_words,Volatility,4,1.0810810810810811
@@ -16395,7 +16596,7 @@ date,category,additional,subject,frequency,frequency_share
 20100127,financial_conditions,count_negative_words_in_paragraph,Financial markets,3,0.8108108108108109
 20100127,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.5405405405405406
 20100127,financial_conditions,count_negative_words_in_paragraph,Stocks,3,0.8108108108108109
-20100127,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20100127,financial_conditions,count_negative_words_in_paragraph,Yield curve,3,0.8108108108108109
 20100127,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20100127,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20100127,financial_conditions,count_negative_words_in_paragraph,Volatility,4,1.0810810810810811
@@ -16403,7 +16604,7 @@ date,category,additional,subject,frequency,frequency_share
 20100127,financial_conditions,count_positive_words_in_paragraph,Financial markets,2,0.5405405405405406
 20100127,financial_conditions,count_positive_words_in_paragraph,Credit markets,3,0.8108108108108109
 20100127,financial_conditions,count_positive_words_in_paragraph,Stocks,2,0.5405405405405406
-20100127,financial_conditions,count_positive_words_in_paragraph,Yield curve,0,0.0
+20100127,financial_conditions,count_positive_words_in_paragraph,Yield curve,1,0.2702702702702703
 20100127,financial_conditions,count_positive_words_in_paragraph,Financing conditions,0,0.0
 20100127,financial_conditions,count_positive_words_in_paragraph,US Dollar,1,0.2702702702702703
 20100127,financial_conditions,count_positive_words_in_paragraph,Volatility,1,0.2702702702702703
@@ -16411,7 +16612,7 @@ date,category,additional,subject,frequency,frequency_share
 20100127,financial_conditions,net_sentiment_per_topic,Financial markets,-1,-0.2702702702702703
 20100127,financial_conditions,net_sentiment_per_topic,Credit markets,1,0.2702702702702703
 20100127,financial_conditions,net_sentiment_per_topic,Stocks,-1,-0.2702702702702703
-20100127,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20100127,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.5405405405405406
 20100127,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20100127,financial_conditions,net_sentiment_per_topic,US Dollar,1,0.2702702702702703
 20100127,financial_conditions,net_sentiment_per_topic,Volatility,-3,-0.8108108108108109
@@ -16723,7 +16924,7 @@ date,category,additional,subject,frequency,frequency_share
 20100428,financial_conditions,count_words,Financial markets,10,4.132231404958678
 20100428,financial_conditions,count_words,Credit markets,7,2.8925619834710745
 20100428,financial_conditions,count_words,Stocks,6,2.479338842975207
-20100428,financial_conditions,count_words,Yield curve,0,0.0
+20100428,financial_conditions,count_words,Yield curve,4,1.6528925619834711
 20100428,financial_conditions,count_words,Financing conditions,2,0.8264462809917356
 20100428,financial_conditions,count_words,US Dollar,0,0.0
 20100428,financial_conditions,count_words,Volatility,3,1.2396694214876034
@@ -16731,7 +16932,7 @@ date,category,additional,subject,frequency,frequency_share
 20100428,financial_conditions,count_negative_words_in_paragraph,Financial markets,6,2.479338842975207
 20100428,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.8264462809917356
 20100428,financial_conditions,count_negative_words_in_paragraph,Stocks,2,0.8264462809917356
-20100428,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20100428,financial_conditions,count_negative_words_in_paragraph,Yield curve,4,1.6528925619834711
 20100428,financial_conditions,count_negative_words_in_paragraph,Financing conditions,2,0.8264462809917356
 20100428,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20100428,financial_conditions,count_negative_words_in_paragraph,Volatility,3,1.2396694214876034
@@ -16747,7 +16948,7 @@ date,category,additional,subject,frequency,frequency_share
 20100428,financial_conditions,net_sentiment_per_topic,Financial markets,-2,-0.8264462809917356
 20100428,financial_conditions,net_sentiment_per_topic,Credit markets,1,0.4132231404958678
 20100428,financial_conditions,net_sentiment_per_topic,Stocks,0,0.0
-20100428,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20100428,financial_conditions,net_sentiment_per_topic,Yield curve,-4,-1.6528925619834711
 20100428,financial_conditions,net_sentiment_per_topic,Financing conditions,-2,-0.8264462809917356
 20100428,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20100428,financial_conditions,net_sentiment_per_topic,Volatility,-3,-1.2396694214876034
@@ -16891,7 +17092,7 @@ date,category,additional,subject,frequency,frequency_share
 20100623,financial_conditions,count_words,Financial markets,12,4.363636363636364
 20100623,financial_conditions,count_words,Credit markets,6,2.181818181818182
 20100623,financial_conditions,count_words,Stocks,13,4.7272727272727275
-20100623,financial_conditions,count_words,Yield curve,0,0.0
+20100623,financial_conditions,count_words,Yield curve,3,1.090909090909091
 20100623,financial_conditions,count_words,Financing conditions,0,0.0
 20100623,financial_conditions,count_words,US Dollar,2,0.7272727272727273
 20100623,financial_conditions,count_words,Volatility,4,1.4545454545454546
@@ -16899,7 +17100,7 @@ date,category,additional,subject,frequency,frequency_share
 20100623,financial_conditions,count_negative_words_in_paragraph,Financial markets,5,1.8181818181818181
 20100623,financial_conditions,count_negative_words_in_paragraph,Credit markets,3,1.090909090909091
 20100623,financial_conditions,count_negative_words_in_paragraph,Stocks,9,3.272727272727273
-20100623,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20100623,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.36363636363636365
 20100623,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20100623,financial_conditions,count_negative_words_in_paragraph,US Dollar,2,0.7272727272727273
 20100623,financial_conditions,count_negative_words_in_paragraph,Volatility,4,1.4545454545454546
@@ -16915,7 +17116,7 @@ date,category,additional,subject,frequency,frequency_share
 20100623,financial_conditions,net_sentiment_per_topic,Financial markets,-3,-1.090909090909091
 20100623,financial_conditions,net_sentiment_per_topic,Credit markets,-2,-0.7272727272727273
 20100623,financial_conditions,net_sentiment_per_topic,Stocks,-8,-2.909090909090909
-20100623,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20100623,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.36363636363636365
 20100623,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20100623,financial_conditions,net_sentiment_per_topic,US Dollar,-2,-0.7272727272727273
 20100623,financial_conditions,net_sentiment_per_topic,Volatility,-4,-1.4545454545454546
@@ -17059,7 +17260,7 @@ date,category,additional,subject,frequency,frequency_share
 20100810,financial_conditions,count_words,Financial markets,4,1.6597510373443984
 20100810,financial_conditions,count_words,Credit markets,7,2.904564315352697
 20100810,financial_conditions,count_words,Stocks,9,3.7344398340248963
-20100810,financial_conditions,count_words,Yield curve,0,0.0
+20100810,financial_conditions,count_words,Yield curve,2,0.8298755186721992
 20100810,financial_conditions,count_words,Financing conditions,1,0.4149377593360996
 20100810,financial_conditions,count_words,US Dollar,0,0.0
 20100810,financial_conditions,count_words,Volatility,2,0.8298755186721992
@@ -17067,7 +17268,7 @@ date,category,additional,subject,frequency,frequency_share
 20100810,financial_conditions,count_negative_words_in_paragraph,Financial markets,2,0.8298755186721992
 20100810,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.8298755186721992
 20100810,financial_conditions,count_negative_words_in_paragraph,Stocks,3,1.2448132780082988
-20100810,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20100810,financial_conditions,count_negative_words_in_paragraph,Yield curve,2,0.8298755186721992
 20100810,financial_conditions,count_negative_words_in_paragraph,Financing conditions,1,0.4149377593360996
 20100810,financial_conditions,count_negative_words_in_paragraph,US Dollar,0,0.0
 20100810,financial_conditions,count_negative_words_in_paragraph,Volatility,2,0.8298755186721992
@@ -17083,7 +17284,7 @@ date,category,additional,subject,frequency,frequency_share
 20100810,financial_conditions,net_sentiment_per_topic,Financial markets,-1,-0.4149377593360996
 20100810,financial_conditions,net_sentiment_per_topic,Credit markets,0,0.0
 20100810,financial_conditions,net_sentiment_per_topic,Stocks,0,0.0
-20100810,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20100810,financial_conditions,net_sentiment_per_topic,Yield curve,-2,-0.8298755186721992
 20100810,financial_conditions,net_sentiment_per_topic,Financing conditions,-1,-0.4149377593360996
 20100810,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20100810,financial_conditions,net_sentiment_per_topic,Volatility,-1,-0.4149377593360996
@@ -17563,7 +17764,7 @@ date,category,additional,subject,frequency,frequency_share
 20101214,financial_conditions,count_words,Financial markets,4,1.6877637130801686
 20101214,financial_conditions,count_words,Credit markets,8,3.375527426160337
 20101214,financial_conditions,count_words,Stocks,9,3.79746835443038
-20101214,financial_conditions,count_words,Yield curve,0,0.0
+20101214,financial_conditions,count_words,Yield curve,1,0.42194092827004215
 20101214,financial_conditions,count_words,Financing conditions,0,0.0
 20101214,financial_conditions,count_words,US Dollar,2,0.8438818565400843
 20101214,financial_conditions,count_words,Volatility,3,1.2658227848101267
@@ -17571,7 +17772,7 @@ date,category,additional,subject,frequency,frequency_share
 20101214,financial_conditions,count_negative_words_in_paragraph,Financial markets,2,0.8438818565400843
 20101214,financial_conditions,count_negative_words_in_paragraph,Credit markets,2,0.8438818565400843
 20101214,financial_conditions,count_negative_words_in_paragraph,Stocks,3,1.2658227848101267
-20101214,financial_conditions,count_negative_words_in_paragraph,Yield curve,0,0.0
+20101214,financial_conditions,count_negative_words_in_paragraph,Yield curve,1,0.42194092827004215
 20101214,financial_conditions,count_negative_words_in_paragraph,Financing conditions,0,0.0
 20101214,financial_conditions,count_negative_words_in_paragraph,US Dollar,1,0.42194092827004215
 20101214,financial_conditions,count_negative_words_in_paragraph,Volatility,3,1.2658227848101267
@@ -17587,7 +17788,7 @@ date,category,additional,subject,frequency,frequency_share
 20101214,financial_conditions,net_sentiment_per_topic,Financial markets,-2,-0.8438818565400843
 20101214,financial_conditions,net_sentiment_per_topic,Credit markets,-1,-0.42194092827004215
 20101214,financial_conditions,net_sentiment_per_topic,Stocks,-1,-0.42194092827004215
-20101214,financial_conditions,net_sentiment_per_topic,Yield curve,0,0.0
+20101214,financial_conditions,net_sentiment_per_topic,Yield curve,-1,-0.42194092827004215
 20101214,financial_conditions,net_sentiment_per_topic,Financing conditions,0,0.0
 20101214,financial_conditions,net_sentiment_per_topic,US Dollar,0,0.0
 20101214,financial_conditions,net_sentiment_per_topic,Volatility,-2,-0.8438818565400843

@@ -67,9 +67,9 @@ df <- merge(df, temp, by = "date", all.x = TRUE)
 ###sliding mean
 df <- df  %>%
   group_by(subject, additional) %>% 
-  mutate(avg_st = slide_index_dbl(frequency, num, mean, .before=3, .after=-1,.complete=T)) %>% ##dont include the current
+  mutate(avg_st = slide_index_dbl(frequency, num, mean, .before=4, .after=-1,.complete=T)) %>% ##dont include the current
   mutate(avg_lt = mean(frequency))%>%
-  mutate(avg_st_share = slide_index_dbl(frequency_share, num, mean, .before=3, .after=-1,.complete=T))%>%
+  mutate(avg_st_share = slide_index_dbl(frequency_share, num, mean, .before=4, .after=-1,.complete=T))%>%
   mutate(avg_lt_share = mean(frequency_share))%>%
   mutate(ma_3m = slide_index_dbl(frequency, num, mean, .before=2, .after=0, .complete=T))%>%
   mutate(ma_3m_share = slide_index_dbl(frequency_share, num, mean, .before=2, .after=0, .complete=T))

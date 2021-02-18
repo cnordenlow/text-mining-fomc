@@ -1,4 +1,6 @@
 date,bound,rate
+20210127,lower_bound,0.0
+20210127,upper_bound,0.25
 20200129,lower_bound,1.5
 20200129,upper_bound,1.75
 20200303,lower_bound,1.0

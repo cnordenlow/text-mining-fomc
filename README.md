@@ -2,7 +2,7 @@
 
 FOMC Minutes are usually a hot topic on the financial markets. There are plenty of observeres trying to break down what they said, and what they really meant.This project aims to give colour on both the actual context but also (hopefully) the underlying meaning and sentiment. With the field of text mining, this projects breaks down the Minutes into multiple areas making plots out of words.
 
-Latest report can be found here(https://cnordenlow.github.io/text-mining-fomc/).
+Latest report can be found [here](https://cnordenlow.github.io/text-mining-fomc/).
 
 ### Methodology
 

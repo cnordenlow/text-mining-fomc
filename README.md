@@ -7,9 +7,13 @@ Latest report can be found [here](https://cnordenlow.github.io/text-mining-fomc/
 Old reports
 
 [2021-11-03](https://cnordenlow.github.io/text-mining-fomc/index_2021-11-03.html)
+
 [2021-09-22](https://cnordenlow.github.io/text-mining-fomc/index_2021-09-22.html)
+
 [2021-07-28](https://cnordenlow.github.io/text-mining-fomc/index_2021-07-28.html)
+
 [2021-01-27](https://cnordenlow.github.io/text-mining-fomc/index_2021-01-27.html)
+
 [2020-12-16](https://cnordenlow.github.io/text-mining-fomc/index_2020-12-16.html)
 
 
